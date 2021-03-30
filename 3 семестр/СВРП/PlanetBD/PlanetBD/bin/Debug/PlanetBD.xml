@@ -1,0 +1,411 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PlanetBD
+</name>
+</assembly>
+<members>
+<member name="T:PlanetBD.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:PlanetBD.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:PlanetBD.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Жизнепригодность_ПланетыDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Класс_ПланетыDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Методы_обнаружения_экзопланетDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.ПланетыDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Данные_об__экзопланетахDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Жизнепригодные_экзопланетыDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet._Мезопланеты_0_50_DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Анализ_для_каждой_планетыDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.ФотоDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table2DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Неподтвержденные_планетыDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Подтвержденные_планетыDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table3DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table4DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table5DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table6DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Жизнепригодность_ПланетыRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Класс_ПланетыRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Методы_обнаружения_экзопланетRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.ПланетыRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Данные_об__экзопланетахRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Жизнепригодные_экзопланетыRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet._Мезопланеты_0_50_Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Анализ_для_каждой_планетыRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.ФотоRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table2Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Неподтвержденные_планетыRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Подтвержденные_планетыRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table3Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table4Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table5Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table6Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Жизнепригодность_ПланетыRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Класс_ПланетыRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Методы_обнаружения_экзопланетRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.ПланетыRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Данные_об__экзопланетахRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Жизнепригодные_экзопланетыRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet._Мезопланеты_0_50_RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Анализ_для_каждой_планетыRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.ФотоRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table2RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Неподтвержденные_планетыRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Подтвержденные_планетыRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table3RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table4RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table5RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSet.Table6RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Жизнепригодность_ПланетыTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Класс_ПланетыTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Методы_обнаружения_экзопланетTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.ПланетыTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Данные_об__экзопланетахTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Жизнепригодные_экзопланетыTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Мезопланеты_0_50_TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Анализ_для_каждой_планетыTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.ФотоTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Table1TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Table2TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Неподтвержденные_планетыTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Подтвержденные_планетыTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Table3TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Table4TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Table5TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.Table6TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(PlanetBD.PlanetsDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(PlanetBD.PlanetsDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(PlanetBD.PlanetsDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager.UpdateAll(PlanetBD.PlanetsDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:PlanetBD.PlanetsDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>

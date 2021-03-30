@@ -1,0 +1,28 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int x, i = 1,j;
+	cin >> x;
+	for (int i = 1; i <= 10; i++) 
+		{
+			switch (x)
+			{
+			case 1:cout << "1*" << i << "=" << 1 * i << endl; break;
+			case 2:cout << "2*" << i << "=" << 2 * i << endl; break;
+			case 3:cout << "3*" << i << "=" << 3 * i << endl; break;
+			case 4:cout << "4*" << i << "=" << 4 * i << endl; break;				//День говна//
+			case 5:cout << "5*" << i << "=" << 5 * i << endl; break;
+			case 6:cout << "6*" << i << "=" << 6 * i << endl; break;
+			case 7:cout << "7*" << i << "=" << 7 * i << endl; break;
+			case 8:cout << "8*" << i << "=" << 8 * i << endl; break;
+			case 9:cout  << "9*" << i << "=" << 9 * i << endl; break;
+			case 10:cout << "10*" << i << "=" << 10 * i << endl; break;
+			}
+	}
+	system("pause");
+	return 0;
+}

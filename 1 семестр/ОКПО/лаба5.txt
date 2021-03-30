@@ -1,0 +1,427 @@
+﻿#include<iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "rus");
+	int b = 0;
+	int a[10]{ 0,2,0,4,0,0,7,8,9,10 };
+	for (int i = 0; i < 10; i++) {
+		if (a[i] == 0)
+			b++;
+	}
+     cout << "количество нулей = " << b << endl;
+
+	system("pause>0");
+	return 0;
+}
+2
+#include<iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "rus");
+	int i = 0, s = 0;
+	int d[15]{ 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14 };
+	for ( i = 0; i < 15; i++) {
+		if (d[i] % 2 != 0)
+			s+= d[i];
+		
+	}
+	cout << s << endl;
+
+	system("pause>0");
+	return 0;
+}
+3
+#include<iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "rus");
+	int i = 0, s = 0, a, b;
+	cout << "введите интервал а,b " << endl;
+	cin >> a >> b;
+	int c[10]{ 0,1,2,3,4,5,6,7,8,9 };
+	for (i = 0; i < 10; i++)
+		if (a<c[i] && b>c[i]) {
+			s++;
+		}
+	cout <<"количество чисел входящих в интервал = "<< s << endl;
+		
+
+	system("pause>0");
+	return 0;
+}
+4
+#include<iostream>
+#include <ctime>
+using namespace std;
+int main() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "rus");
+	const int N = 20;
+	int x[N], i=0, s=0 ;
+	do {
+		i++;
+		x[i] = rand() % 20;
+		s += x[i];
+		cout << x[i] << "\t";
+	} while (x[i] != 0);
+	cout <<"Cумма = "<< s << endl;
+	system("pause>nul");
+	return 0;}
+5#include<iostream>
+#include<ctime>
+using namespace std;
+
+int main() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "rus");
+	const int N = 16;
+	int a[N] = {}, b[N] = {}, pol = 0, neg = 1;
+	for (int i = 0; i < 8; i++) {
+		a[i] = rand() % 10;
+		cout << a[i] << " ";
+	}
+	for (int i = 8; i < 16; i++) {
+		a[i] = rand() % 10 - 10;
+		cout << a[i] << " ";
+	}
+	cout << endl;
+	for (int i = 0; i < N; i++) {
+		if (a[i] >= 0) {
+			b[pol] = a[i];
+			pol += 2;
+		}
+#include<iostream>
+#include<ctime>
+using namespace std;
+
+int main() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "rus");
+	const int N = 16;
+	int a[N],p=1,s=0, q=0;
+	for (int i = 0; i < N; i++)
+	{
+		a[i] = rand() % 10;
+		cout << a[i]<<" ";
+	}
+	cout << endl;
+	for (int i = 0; i < N; i++)
+	{
+		if (a[i]<=0)
+		{
+			break;
+		}
+		p *= a[i];
+	}
+	
+	for ( int i = 0; i < N; i++)
+	{
+		if (a[i]==0)
+		{
+			cout << i;
+			q = i;
+			break;
+		}
+	}
+	cout << endl;
+	for (int j = q; j < N; j++)
+	{
+		s += a[j];
+	}
+	cout << "Сумма " << s << endl;
+	cout << "Произведение " << p << endl;
+	system("pause>0");
+	return 0;
+}
+7#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "rus");
+	const int N = 15;
+	int sum = 0, i = 0, pr = 1;
+	int a;
+	int b[N], x[N], count = 0;
+
+	for (int i = 0; i < N; i++) {
+		x[i] = rand() % 21 - 10;
+		cout << "x[" << i << "]=" << x[i] << endl;
+	}
+	cout << endl;
+	for (int j = 0; j < 15; j++) {
+		if (x[j] > 0) {
+
+			b[count] = x[j];
+			count++;
+		}
+	}
+	for (i = 0; i < count - 1; i++) {
+		cout << "b[" << i << "]=" << b[i] << endl;
+	}
+	cout << endl;
+	system("pause");
+	return 0;
+}
+8
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "rus");
+	const int N = 10;
+	int a[N], q, b=0,i;
+
+	for (int i = 0; i < N; i++) {
+		a[i] = rand() % 10 - 1;
+		cout << a[i] << " " << endl;;
+	}
+	for (int i = 0; i < N; i++)
+	{
+		if (a[i] == 0)
+		{
+		cout << "Нулевой элемент = " << i << endl;
+			q = i;
+			break;
+		}
+}
+	for (int j = q; j < N; j++) {
+		if (a[j] >= 0) {
+			b = a[j] * 2;
+		}
+		else {
+			b = a[j] * 1;
+		}
+		cout << b <<" ";
+	}
+	system("pause>0");
+	return 0;
+}
+	#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	const int N = 12;
+	int p = 0, neg;
+	int A[N] = { -2, -1, 1, 5, -4, 7, -1, -5, -7, 9, 1, 2 };
+	int B[N] = {};
+	for (int i = 0; i < N; i++){
+		cout << A[i] << " ";
+		if (A[i] > 0) {
+			B[p] = A[i];
+			p += 1;
+		}
+		neg = p;
+	}
+	cout << endl;
+	for (int i = 0; i < N; i++) {
+		if (A[i] < 0) {
+			B[neg] = A[i];
+			neg++;
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		cout << B[i] << " ";
+	}
+	system("pause");
+	return 0;
+}
+#include<iostream>
+#include<ctime>
+using namespace std;
+
+int main() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "rus");
+	const int N = 15;
+	int c[N], i=0, kol1=0,kol0=0,kol=0;
+	for (i = 0; i < N; i++) {
+
+		c[i] = rand() % 2;
+		cout << c[i] << "\n";
+		if (c[i] == 1) {
+			kol1++;
+		}
+		else {
+			kol0++;
+		}
+	
+	}
+
+	do {
+		i++;
+			if (c[i] == 0) {
+				kol++;
+			}
+
+		} while (c[i] != 1);
+
+
+
+	cout << "количество 1 = " << kol1 << endl;
+	cout << "количество 0 = " << kol0 << endl;
+	cout << "количество 0 до 1 = " << kol << endl;
+	system("pause>0");
+	return 0;
+}
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "rus");
+	const int N = 17;
+	double x, y, z, j;
+	cout << "Введите x -> ";
+	cin >> x;
+	cout << "Введите y -> ";
+	cin >> y;
+	cout << "Введите z -> ";
+	cin >> z;
+	double a[N];
+
+	for (int j = 3; j < N; j++) {
+		a[0] = x;
+		a[1] = y;
+		a[2] = z;
+		a[j] = (a[j - 1] + a[j - 2] + a[j - 3]) / 3.;
+
+		cout << "a[" << j << "]=" << a[j] << endl;
+	}
+	system("pause");
+	return 0;
+}
+		else {
+			b[neg] = a[i];
+			neg += 2;
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		cout << b[i] << " ";
+	}
+
+	system("pause>0");
+	return 0;
+}
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main() {
+	srand(time(NULL));
+	setlocale(LC_ALL, "rus");
+	const int N = 27;
+	int a[N] = {}, i, min = a[0];
+	 
+	for ( i = 0; i < N; i++) {
+		a[i] = rand() % 40 - 1;
+		
+		if (a[i] <= min)
+		min = a[i];
+	}
+	cout << "min = "<< min << endl;
+	if (min < 0.1) {
+		for (i = 0; i < N; i++) {
+			a[i] = 1;
+			cout << a[i] <<"\t";
+}}
+	system("pause>0");
+	return 0;}
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "rus");
+	const int N = 50;
+	float a[N], min;
+	int i = 0, count = 0, d;
+	srand(time(NULL));
+	for (int i = 0; i < N; i++) {
+		a[i] = rand() % 21 - 30;
+		cout << "a[" << i << "] = " << a[i] << endl;
+	}
+	cout << endl;
+	min = a[0];
+	for (int r = 1; r < N; r++)
+	{
+		if (min > a[r]) {
+			min = a[r];
+			d = r;
+		}
+	}
+	cout << "min = " << min << endl << endl;
+	for (int i = 0; i < d; i++) {
+		a[i] *= min;
+	}
+	for (int i = 0; i < N; i++) {
+		cout << "a[" << i << "] = " << a[i] << endl;
+	}
+	system("pause");
+	return 0;
+}
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "rus");
+	const int N = 30;
+	float a[N], x[N], min;
+	int i = 0, count = 0, d;
+	srand(time(NULL));
+	for (int i = 0; i < N; i++) {
+		a[i] = rand() % 21 - 30;
+		cout << "a[" << i << "] = " << a[i] << endl;
+	}
+	cout << endl;
+	min = a[0];
+	for (int r = 1; r < N; r++)
+	{
+		if (min > a[r]) {
+			min = a[r];
+			d = r;
+		}
+	}
+	cout << "min = " << min << endl << endl;
+	for (int i = 0; i < d; i++) {
+		x[i] = a[i];
+		cout << "x[" << i << "] = " << x[i] << endl;
+	}
+	system("pause");
+	return 0;
+}
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "rus");
+	const int n = 25;
+	int y[n]{}, min = y[0];
+	srand(time(NULL));
+	for (int i = 0; i < n; i++) {
+		y[i] = rand() % 10-5;
+		cout << y[i] << ' ';
+	}
+	cout << endl;
+	for (int i = 0; i < n; i++) {
+		if (min > y[i]) {
+			min = y[i];
+		}
+	}
+	cout << "min = " << min << endl;
+	int tmp = 0;
+	for (int i = 0; i < n; i++) {
+		if (y[i] > 0) {
+		tmp = y[i];
+		y[i] = min;
+		min = tmp;	
+		}
+	
+	}	
+	for (int i = 0; i < n; i++) {
+		cout << y[i] << ' ';
+	}
+	system("pause");
+	return 0;}

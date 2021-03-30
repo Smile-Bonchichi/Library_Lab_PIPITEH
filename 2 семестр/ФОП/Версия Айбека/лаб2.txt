@@ -1,0 +1,219 @@
+1
+
+#include<iostream>
+using namespace std;
+
+void matrix(int a, int b, double& c, double& S)//Через ссылку
+{
+	c = sqrt(pow(a, 2) + pow(b, 2));
+	S = 0.5 * a * b;
+}
+int main() {
+	setlocale(LC_ALL, "rus");
+	double  k, z;
+	int x, y;
+	cout << "Введите катет (a):";
+	cin >> x;
+	cout << "Введите катет (b):";
+	cin >> y;
+	matrix(x, y, z, k);
+	cout << "Гипотенуза равна:" << z << endl;
+	cout << "Площадь равна:" << k << endl;
+	system("pause");
+	return 0;
+}
+
+1.1
+
+#include<iostream>
+using namespace std;
+
+void matrix(int a, int b, double* c, double* S)//Через амперсант
+{
+	*c = sqrt(pow(a, 2) + pow(b, 2));
+	*S = 0.5 * a * b;
+}
+int main() {
+	setlocale(LC_ALL, "rus");
+	double  k, z;
+	int x, y;
+	cout << "Введите катет (a):";
+	cin >> x;
+	cout << "Введите катет (b):";
+	cin >> y;
+	matrix(x, y, &z, &k);
+	cout << "Гипотенуза равна:" << z << endl;
+	cout << "Площадь равна:" << k << endl;
+	system("pause");
+	return 0;
+}
+
+2
+
+#include <iostream>
+using namespace std;
+void matrix(int r, int h, double& S, double& V)
+{
+	const double pi = 3.14;
+	S = pi * pow(r, 2);
+	V = S * h;
+}
+int main() {
+	setlocale(LC_ALL, "rus");
+	double z, R;
+	int x, y;
+	cout << "Введите радиус основания:";
+	cin >> x;
+	cout << "Введите высоту цилиндра:";
+	cin >> y;
+	matrix(x, y, z, R);
+	cout << "\nРезультат:\n";
+	cout << "Площадь основания равна:" << z << endl;
+	cout << "Объём цилиндра равен:" << R << endl;
+	system("pause");
+	return 0;
+
+
+3
+#include <iostream>
+using namespace std;
+
+void matrix(double Dollar, double Rub, double som, double& coldollar, double& colrub)
+{
+
+	coldollar = som / Dollar;
+	colrub = som / Rub;
+}
+int main() {
+	setlocale(LC_ALL, "rus");
+	double a, Z, R, dollar, rub;
+	cout << "Введите курс доллара:";
+	cin >> dollar;
+	cout << "Введите курс рубля:";
+	cin >> rub;
+	cout << "Введите количество денег в сомах:";
+	cin >> a;
+	matrix(dollar, rub, a, Z, R);
+	cout << "\nРезультат:\n";
+	cout << "Количество денег в долларах равно:" << Z << endl;
+	cout << "Количество денег в рублях равно:" << R << endl;
+	system("pause");
+	return 0;
+}
+
+5
+
+#include <iostream>
+using namespace std;
+void fahren(int, double&);
+void celsius(int, int&);
+int main() {
+	setlocale(LC_ALL, "rus");
+	double f = 0;
+	int c = 0;
+	cout << "Таблица: Градусных мер,с Цельсия в Фаренгейты!" << endl;
+	for (int i = 0; i <= 100; i++) {
+		cout << i << "^C=\t";
+		fahren(i, f);
+		cout << f << "^F\n";
+	}
+	cout << "\n""\n";
+	cout << "Таблица: Градусных мер,с Фаренгейтов в Цельсии!" << endl;
+	for (int j = 32; j <= 212; j++) {
+		cout << j << "^F=\t";
+		celsius(j, c);
+		cout << c << "^C\t";
+	}
+	cout << "\n\n";
+	system("pause");
+	return 0;
+}
+void fahren(int c, double& F) {
+	F = (c * 1.8) + 32;
+}
+void celsius(int f, int& C) {
+	C = (f - 32) / 1.8;
+}
+
+6
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+void qualityPoints(int, int&);
+
+int main() {
+	setlocale(LC_ALL, "rus");
+	srand(time(NULL));
+	int x, n, y;
+	cout << "Введите определённое количество студентов:";
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		y = 1 + rand() % 100;
+		qualityPoints(y, x);
+		cout << "Студент," << " под № [" << i << "] получил " << y << " балла:";
+		if (x == 5) {
+			cout << "<" << x << ">" << " Отлично!" << endl;
+		}
+		else if (x == 4) {
+			cout << "<" << x << ">" << " Хорошо!" << endl;
+		}
+		else if (x == 3) {
+			cout << "<" << x << ">" << " Удовлетворительно!" << endl;
+		}
+		else if (x == 2) {
+			cout << "<" << x << ">" << " Неудовлетворительно!(FX)" << endl;
+		}
+		else {
+			cout << "<" << x << ">" << " Плохо!(F)" << endl;
+		}
+
+	}
+	system("pause");
+}
+void qualityPoints(int a, int& b) {
+	if (a >= 87 && a <= 100) {
+		b = 5;
+	}
+	else if (74 <= a && a <= 86) {
+		b = 4;
+	}
+	else if (61 <= a && a <= 73) {
+		b = 3;
+	}
+	else if (41 <= a && a <= 60) {
+		b = 2;
+	}
+	else {
+		b = 1;
+	}
+}
+
+7
+
+#include <iostream>
+using namespace std;
+void ByValue(int);
+void ByReference(int&);
+int main() {
+	setlocale(LC_ALL, "rus");
+	int count;
+	cout << "Введите определённое число:";
+	cin >> count;
+	cout << "\n";
+	ByValue(count);
+	cout << "Итог под №1 равен:" << count << endl;
+	ByReference(count);
+	cout << "Итог под №2 равен:" << count << endl;
+	system("pause");
+}
+
+void ByValue(int a) {
+	a = a * 3;
+	cout << "Результат под №1 равен:" << a << endl;
+}
+void ByReference(int& a) { //ссылка
+	a = a * 3;
+	cout << "Результат под №2 равен:" << a << endl;
+}
