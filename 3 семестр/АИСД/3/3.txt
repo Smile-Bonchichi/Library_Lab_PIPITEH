@@ -228,7 +228,7 @@ int* add(int* arr, int n) {
 			}
 		}
 	}
-	delete arr;
+	delete[] arr;
 	return arr2;
 }
 

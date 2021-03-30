@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dip" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="324dp"
+        android:layout_height="587dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/amaldivi" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="595dp"
+        android:fontFamily="casual"
+        android:scrollIndicators="bottom|start"
+        android:text="Мальдивы! Наслаждайтесь!"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textDirection="locale"
+        android:textIsSelectable="false"
+        android:textSize="36sp"
+        android:textStyle="normal|bold|italic"
+        android:typeface="normal"
+        android:verticalScrollbarPosition="defaultPosition"
+        android:visibility="visible" />
+</RelativeLayout>

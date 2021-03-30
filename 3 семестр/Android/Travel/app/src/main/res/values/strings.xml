@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Куда бы поехать в отпуск?</string>
+    <string name="action_settings">Куда бы поехать в отпуск?</string>
+    <string name="enjoy">Наслаждайтесь!</string>
+    <string name="Canari">Канары</string>
+    <string name="Philippini">Филиппины</string>
+    <string name="Curili">Курилы</string>
+    <string name="Maldivi">Мальдивы</string>
+</resources>

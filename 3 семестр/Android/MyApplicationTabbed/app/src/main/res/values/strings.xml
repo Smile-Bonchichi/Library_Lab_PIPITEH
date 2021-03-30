@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Статуя богини Каннон</string>
+    <string name="tab_text_1">Информация</string>
+    <string name="tab_text_2">Фото снаружи</string>
+    <string name="tab_text_3">Фото изнутри</string>
+</resources>

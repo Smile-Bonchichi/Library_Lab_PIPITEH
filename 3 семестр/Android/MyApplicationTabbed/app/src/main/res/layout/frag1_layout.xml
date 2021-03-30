@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Статуя богини Каннон (яп. 仙台 大観音) — большая каменная статуя богини милосердия Каннон, расположенная в районе Идзуми города Сэндай. Сэндайская статуя — самая высокая статуя богини Каннон в мире (100 метров), самая высокая статуя богини в Японии и одна из пяти самых высоких статуй в мире по состоянию на 2018 г.
+Статуя Сэндай Дайканнон в городе Сэндай высотой 100 метров была построена в 1991 году. Статуя изображает буддийскую богиню Каннон, несущую жемчужину желаний Нёиходзю в правой руке и небольшой сосуд с водой мудрости в левой руке, что классифицирует её как «Каннон, исполняющую желания»."
+        android:textAlignment="center"
+        android:textColor="#5a3d55"
+        android:textSize="24sp"
+        android:textStyle="normal|bold|italic" />
+</LinearLayout>

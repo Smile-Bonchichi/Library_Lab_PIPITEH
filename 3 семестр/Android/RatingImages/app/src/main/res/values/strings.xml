@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RatingImages</string>
+    <string name="str" translatable="false">Введите текст</string>
+    <string name="go">Go!</string>
+</resources>
