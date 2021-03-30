@@ -1,0 +1,249 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+#include "conio.h"
+
+#include "color.h"
+#include "RainbowHello.h"
+
+#define str string
+
+using namespace std;
+
+bool check_number(str s) { //функция для проверки введенного символа
+	if (atoi(s.c_str()) || s == "0")
+		return true;
+	else return false;
+}
+
+struct info {
+	str name, type, processor;
+	int count = 0, x = 0, y = 0, ram = 0, hard_disk = 0;
+	double speed = 0;
+};
+
+class Display {
+	str type;
+	int count_colors;
+	int x_resolution, y_resolution;
+public:
+	Display() { count_colors = x_resolution = y_resolution = 0; }
+	Display(str type, int count, int x, int y) {
+		this->type = type;
+		this->count_colors = count;
+		this->x_resolution = x;
+		this->y_resolution = y;
+	}
+	void outputDisplay() {
+		cout << setw(12); dark_blue(type); blue(" | ");
+		cout << setw(13); dark_blue(to_string(count_colors)); blue(" | ");
+		cout << setw(10); dark_blue(to_string(x_resolution)); blue(" | ");
+		cout << setw(10); dark_blue(to_string(y_resolution)); blue(" | ");
+	}
+};
+
+class MotherBoard {
+	str processor;
+	double speed;
+	int ram;
+public:
+	MotherBoard() { speed = ram = 0; }
+	MotherBoard(str processor, double speed, int ram) {
+		this->processor = processor;
+		this->speed = speed;
+		this->ram = ram;
+	}
+	void outputMotherBoard() {
+		cout << setw(14); dark_blue(processor); blue(" | ");
+		cout << setw(12); dark_blue(to_string(speed)); blue(" | ");
+		cout << setw(5); dark_blue(to_string(ram) + " гб"); blue(" |\n");
+	}
+};
+
+class Computer : public Display, MotherBoard {
+	str name;
+	int hard_disk;
+public:
+	Computer() : Display(), MotherBoard() { hard_disk = 0; }
+	Computer(info a) : Display(a.type, a.count, a.x, a.y), MotherBoard(a.processor, a.speed, a.ram) {
+		this->name = a.name;
+		this->hard_disk = a.hard_disk;
+	}
+	void show() {
+		blue("| "); cout << setw(12); dark_blue(name); blue(" | "); cout << setw(9); dark_blue(to_string(hard_disk) + " гб"); blue(" | ");
+		outputDisplay();
+		outputMotherBoard();
+	}
+};
+
+void main_menu() {
+	magenta("                     ,---.           ,---.   \n");
+	magenta("                    / /^`.\\.--''''-./,'^\\ \\ \n");
+	magenta("                    \\ \\    _       _    / /  "); red("\t\t\t\t\t\tГлавное Меню:\t\t\n");
+	magenta("                     `./  / __   __ \\  \\,'   \n");
+	magenta("                      /    /_O)_(_O\\    \\     "); green("\t\t\t\t\t1. Добавить новый комп\t\n");
+	magenta("                      |  .-'  ___  `-.  |  \n");
+	magenta("                   .--|       \\_/       |--.  "); green("\t\t\t\t\t2. Вывести список компьютеров\t\n");
+	magenta("                 ,'    \\   \\   |   /   /    `.\n");
+	magenta("                /       `.  `--^--'  ,'       \\"); green("\t\t\t\t\t3. Удалить компьютер\t\t\n");
+	magenta("             .-^^^^^-.    `--.___.--'     .-^^^^^-.\n");
+	magenta(".-----------/         \\------------------/         \\--------------."); green("\t\t4. Выход\t\t\t\n");
+	magenta("| .---------\\         /----------------- \\         /------------. |\n");
+	magenta("| |          `-`--`--'                    `--'--'-'             | |\n");
+	magenta("| |   "); red("__      __   ___  | |   ___    ___    _ __ ___     ___"); magenta("    | |\n");
+	magenta("| |   "); red("\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\"); magenta("   | |\n");
+	magenta("| |    "); red("\\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/"); magenta("   | |\n");
+	magenta("| |     "); red("\\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|"); magenta("   | |\n");
+	magenta("| |_____________________________________________________________| |\n");
+	magenta("|_________________________________________________________________|\n");
+	magenta("                   )__________|__|__________(\n");
+	magenta("                  |            ||            |\n");
+	magenta("                  |____________||____________|\n");
+	magenta("                    ),-----.(      ),-----.(\n");
+	magenta("                  ,'   ==.   \\    /  .==    `.\n");
+	magenta("                 /            )  (            \\\n");
+	magenta("                 `==========='    `==========='  \n");
+}
+void main_menu1() {
+	magenta("                     ,---.           ,---.   \n");
+	magenta("                    / /^`.\\.--''''-./,'^\\ \\ \n");
+	magenta("                    \\ \\    _       _    / /  "); red("\t\t\t\t\t\tГлавное Меню:\t\t\n");
+	magenta("                     `./  / __   __ \\  \\,'   \n");
+	magenta("                      /    /_O)_(_O\\    \\     "); green("\t\t\t\t\t1. Добавить новый комп\t\n");
+	magenta("                      |  .-'  ___  `-.  |  \n");
+	magenta("                   .--|       \\_/       |--.  "); green("\t\t\t\t\t2. Вывести список компьютеров\t\n");
+	magenta("                 ,'    \\   \\   |   /   /    `.\n");
+	magenta("                /       `.  `--^--'  ,'       \\"); green("\t\t\t\t\t3. Удалить компьютер\t\t\n");
+	magenta("             .-^^^^^-.    `--.___.--'     .-^^^^^-.\n");
+	magenta(".-----------/         \\------------------/         \\--------------."); green("\t\t4. Выход\t\t\t\n");
+	magenta("| .---------\\         /----------------- \\         /------------. |\n");
+	magenta("| |          `-`--`--'                    `--'--'-'             | |\n");
+	magenta("| |   "); cyan("__      __   ___  | |   ___    ___    _ __ ___     ___"); magenta("    | |\n");
+	magenta("| |   "); cyan("\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\"); magenta("   | |\n");
+	magenta("| |    "); cyan("\\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/"); magenta("   | |\n");
+	magenta("| |     "); cyan("\\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|"); magenta("   | |\n");
+	magenta("| |_____________________________________________________________| |\n");
+	magenta("|_________________________________________________________________|\n");
+	magenta("                   )__________|__|__________(\n");
+	magenta("                  |            ||            |\n");
+	magenta("                  |____________||____________|\n");
+	magenta("                    ),-----.(      ),-----.(\n");
+	magenta("                  ,'   ==.   \\    /  .==    `.\n");
+	magenta("                 /            )  (            \\\n");
+	magenta("                 `==========='    `==========='  \n");
+}
+void addC(Computer*& comp, int& n, info tempInfo) {
+	Computer* temp = new Computer[n];
+
+	for (int i = 0; i < n; i++)
+		temp[i] = comp[i];
+
+	n++; comp = new Computer[n];
+	comp[n - 1] = Computer(tempInfo);
+
+	for (int i = 0; i < n - 1; i++)
+		comp[i] = temp[i];
+
+	delete[]temp;
+	time_t start, end;
+	double dif = 0;
+	while (true) {
+		start = clock();
+		system("color 01");
+		system("color 11");
+		system("color 21");
+		system("color 31");
+		system("color 41");
+		system("color 51");
+		end = clock(); dif += difftime(end, start);
+		if ((dif / 1000.0) >= 1)
+			break;
+	}
+}
+
+void Hello() {
+	time_t start, end;
+	double dif = 0;
+	while (true) {
+		start = clock();
+		helloRed(); system("cls");
+		helloOrange(); system("cls");
+		helloYellow(); system("cls");
+		helloGreen(); system("cls");
+		helloCyan(); system("cls");
+		helloBlue(); system("cls");
+		helloMagenta(); system("cls");
+		end = clock(); dif += difftime(end, start);
+		if ((dif / 1000.0) >= 3)
+			break;
+	}
+}
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	Hello();
+
+	info temp; fstream sin; int n;
+	sin.open("5\\computer.txt"); sin >> n;
+	Computer* PC = new Computer[n];
+	for (int i = 0; i < n; i++) {
+		sin.ignore(); getline(sin, temp.name);
+		sin >> temp.hard_disk >> temp.type >> temp.count;
+		sin >> temp.x >> temp.y;
+		sin.ignore(); getline(sin, temp.processor);
+		sin >> temp.speed >> temp.ram;
+		PC[i] = Computer(temp);
+	}
+	sin.close();
+
+	bool f = true; str s;
+	while (f) {
+		while (!_kbhit()) {
+			main_menu();
+			system("cls");
+			main_menu1();
+			system("cls");
+		}
+		main_menu();
+		cin >> s;
+		system("cls");
+		if (!check_number(s))
+			cout << "Вы ввели не число!!!" << endl;
+		else {
+			switch (atoi(s.c_str())) {
+			case 1:
+				cout << "Введите "; red("название"); cout << " нового компьютера : "; cin.ignore(); getline(cin, temp.name);
+				cout << "Введите "; red("объем жесткого диска"); cout << " : "; cin >> temp.hard_disk;
+				cout << "Введите "; red("тип монитора"); cout << " : "; cin >> temp.type;
+				cout << "Введите "; red("количество цветов монитора"); cout << " : "; cin >> temp.count;
+				cout << "Введите "; red("X и Y монитора"); cout << " : "; cin >> temp.x >> temp.y;
+				cout << "Введите "; red("название процессора"); cout << " : "; cin.ignore(); getline(cin, temp.processor);
+				cout << "Введите "; red("скорость процессора"); cout << " : "; cin >> temp.speed;
+				cout << "Введите "; red("объем оперативной памяти"); cout << " : "; cin >> temp.ram;
+				system("cls"); addC(PC, n, temp);
+				break;
+			case 2:
+				blue("_____________________________________________________________________________________________________________________________\n");
+				blue("|   Название   | Hard Disk | Тип монитора | Кол-во цветов | Разр. по Х | Разр. по У | Название проц. | Частота проц |  RAM  |\n");
+				blue("|--------------|-----------|--------------|---------------|------------|------------|----------------|--------------|-------|\n");
+				for (int i = 0; i < n; i++)
+					PC[i].show();
+				cin.ignore();
+				getline(cin, s);
+				break;
+			case 3:	n--; break;
+			case 4: f = false; break;
+			default: yellow("Такой операции не существует!!!\nВведите заново.\n"); break;
+			}
+		}
+	}
+
+	delete[]PC;
+	return 0;
+}

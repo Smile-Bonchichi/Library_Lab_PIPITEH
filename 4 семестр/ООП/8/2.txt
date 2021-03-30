@@ -1,0 +1,64 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+
+#define ll long long
+#define str string
+
+using namespace std;
+
+class Rect {
+	double length;
+	double width;
+public:
+	Rect() { this->length = this->width = 0; }
+	Rect(double l, double w) {
+		this->length = 0;
+		this->width = 0;
+		try {
+			if (l < 0 || w < 0)
+				throw "Ошибка!!!";
+			else {
+				this->length = l;
+				this->width = w;
+			}
+		} catch (const char* ex) {
+			red(ex);
+			exit(0);
+		}
+	}
+	Rect(double square) {
+		this->length = this->width = square;
+	}
+	void output() {
+		try {
+			if (length == 0 || width == 0) 
+				throw "Ошибка!!!";
+			else
+				cout << "Length = " << length << "\tWidth = " << width << endl;
+		} catch (const char* ex) {
+			red(ex);
+		}
+	}
+	double rect_area() {
+		return (length * width);
+	}
+};
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	Rect a;
+
+	while (true) {
+		a = Rect(2, -5);
+		a.output();
+	}
+
+	return 0;
+}

@@ -1,0 +1,95 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+
+#define ll long long
+#define str string
+
+using namespace std;
+
+double power(double n, int p = 2) {
+	double temp = 1;
+	for (int i = 0; i < p; i++)
+		temp *= n;
+	return temp;
+}
+short int power(short int n, int p =2) {
+	short int temp = 1;
+	for (int i = 0; i < p; i++)
+		temp *= n;
+	return temp;
+}
+long int power(long int n, int p = 2) {
+	long int temp = 1;
+	for (int i = 0; i < p; i++)
+		temp *= n;
+	return temp;
+}
+float power(float n, int p = 2) {
+	float temp = 1;
+	for (int i = 0; i < p; i++)
+		temp *= n;
+	return temp;
+}
+
+template <class T>
+void output(T& value, int& valuePower, str s) {
+	cout << "Введите число типа " << s << ": ";
+	cin >> value;
+	cout << "Введите степень в которую возвести: ";
+	cin >> valuePower;
+	system("cls");
+	if (valuePower < 2) {
+		cout << "Вы ввели степень < 2, из за этого степень будет равна 2!!!" << endl;
+		cout << "Число " << value << " типа " << s << " в степени 2 равна: " << power(value) << "\n\n\n";
+	} else {
+		cout << "Число " << value << " типа " << s << " в степени " << valuePower << " равна: " << power(value, valuePower) << "\n\n\n";
+	}
+}
+
+void menu() {
+	cout << "-----------------------------------------" << endl;
+	cout << "|             Главное Меню:             |" << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "|             1. Short                  |" << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "|             2. Long                   |" << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "|             3. Double                 |" << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "|             4. Float                  |" << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "|             5. Выход.                 |" << endl;
+	cout << "-----------------------------------------" << endl;
+}
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	int Power, x;
+	short int ShortValue;
+	long int LongValue;
+	double DoubleValue;
+	float FloatValue;
+	str s; bool f = true;
+
+	while (f) {
+		menu();
+		cout << "\nВыберите тип данных: ";
+		cin >> x;
+		system("cls");
+		switch (x) {
+		case 1: s = "short"; output(ShortValue, Power, s); break;
+		case 2: s = "long"; output(LongValue, Power, s); break;
+		case 3: s = "double"; output(DoubleValue, Power, s); break;
+		case 4: s = "float"; output(FloatValue, Power, s); break;
+		case 5: f = false; break;
+		}
+	}
+	return 0;
+}

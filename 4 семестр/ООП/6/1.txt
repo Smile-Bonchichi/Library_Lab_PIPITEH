@@ -1,0 +1,201 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+#include "conio.h"
+
+#include "color.h"
+
+#define str string
+
+using namespace std;
+
+bool check_number(str s) { //функция для проверки введенного символа
+	if (atoi(s.c_str()) || s == "0")
+		return true;
+	else return false;
+}
+
+class Array1;
+class Array2;
+class Array3;
+
+class Array {
+protected:
+	str id;
+	int n;
+	int* arr;
+public:
+	Array() { n = 0;  arr = new int[n]; this->id = "#1"; }
+	virtual void input(int size) {
+		this->n = size;
+		arr = new int[n];
+		for (int i = 0; i < n; i++)
+			arr[i] = i;
+	}
+	void output() {
+		yellow(id + ":  ");
+		for (int i = 0; i < n; i++)
+			cout << arr[i] << " ";
+		cout << endl;
+	}
+	virtual int Amount() {
+		int amount = 0;
+		for (int i = 0; i < n; i++)
+			amount += arr[i];
+		return amount;
+	}
+	void outputAmount() {
+		dark_blue(id + " amount = "); red(to_string(Amount()) + "\n");
+	}
+	friend void AllAmount(Array& arr1, Array2& arr2, Array3& arr3);
+	~Array() {
+		delete[]arr;
+	}
+};
+class Array2 : public Array {
+public:
+	Array2() : Array() { this->id = "#2"; }
+	void input(int size) override {
+		this->n = size;
+		arr = new int[n];
+		for (int i = 0; i < n; i++)
+			arr[i] = i + 10;
+	}
+	int Amount() override {
+		int amount_odd = 0;
+		int amount_even = 0;
+		for (int i = 0; i < n; i++) {
+			if (arr[i] % 2 == 0)
+				amount_even += arr[i];
+			else
+				amount_odd += arr[i];
+		}
+		int amount = amount_even + amount_odd;
+		return amount;
+	}
+	friend void AllAmount(Array& arr1, Array2& arr2, Array3& arr3);
+};
+class Array3 : public Array {
+public:
+	Array3() : Array() { this->id = "#3"; }
+	void input(int size) override {
+		this->n = size;
+		arr = new int[n];
+		for (int i = 0; i < n; i++)
+			arr[i] = i + 20;
+	}
+	int Amount() override {
+		int amount_odd = 0;
+		int amount_even = 0;
+		for (int i = n - 1; i > -1; i--) {
+			if (arr[i] % 2 == 0)
+				amount_even += arr[i];
+			else
+				amount_odd += arr[i];
+		}
+		int amount = amount_even + amount_odd;
+		return amount;
+	}
+	friend void AllAmount(Array& arr1, Array2& arr2, Array3& arr3);
+};
+
+void AllAmount(Array& arr1, Array2& arr2, Array3& arr3) {
+	magenta("#1 + #2 + #3 = " + to_string(arr1.Amount() + arr2.Amount() + arr3.Amount()));
+}
+
+void main_menu() {
+	magenta("                     ,---.           ,---.   \n");
+	magenta("                    / /^`.\\.--''''-./,'^\\ \\ \n");
+	magenta("                    \\ \\    _       _    / /  "); red("\t\t\t\t\t\tГлавное Меню:\t\t\n");
+	magenta("                     `./  / __   __ \\  \\,'   \n");
+	magenta("                      /    /_O)_(_O\\    \\     "); green("\t\t\t\t\t1. Объявить кол - во элементов у массива #1\t\n");
+	magenta("                      |  .-'  ___  `-.  |  \n");
+	magenta("                   .--|       \\_/       |--.  "); green("\t\t\t\t\t2. Объявить кол - во элементов у массива #2\t\n");
+	magenta("                 ,'    \\   \\   |   /   /    `.\n");
+	magenta("                /       `.  `--^--'  ,'       \\"); green("\t\t\t\t\t3. Объявить кол - во элементов у массива #3\t\t\n");
+	magenta("             .-^^^^^-.    `--.___.--'     .-^^^^^-.\n");
+	magenta(".-----------/         \\------------------/         \\--------------."); green("\t\t4. Вывести все 3 массива\t\t\t\n");
+	magenta("| .---------\\         /----------------- \\         /------------. |\n");
+	magenta("| |          `-`--`--'                    `--'--'-'             | |"); green("\t\t5. Сложить массив #1\n");
+	magenta("| |   "); cyan("__      __   ___  | |   ___    ___    _ __ ___     ___"); magenta("    | |\n");
+	magenta("| |   "); cyan("\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\"); magenta("   | |"); green("\t\t6. Сложить массив #2\n");
+	magenta("| |    "); cyan("\\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/"); magenta("   | |\n");
+	magenta("| |     "); cyan("\\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|"); magenta("   | |"); green("\t\t7. Сложить массив #3\n");
+	magenta("| |_____________________________________________________________| |\n");
+	magenta("|_________________________________________________________________|"); green("\t\t8. Вывести общую сумму массивов\n");
+	magenta("                   )__________|__|__________(\n");
+	magenta("                  |            ||            |"); green("\t\t\t\t\t9. Выход\n");
+	magenta("                  |____________||____________|\n");
+	magenta("                    ),-----.(      ),-----.(\n");
+	magenta("                  ,'   ==.   \\    /  .==    `.\n");
+	magenta("                 /            )  (            \\\n");
+	magenta("                 `==========='    `==========='  \n");
+}
+void main_menu1() {
+	magenta("                     ,---.           ,---.   \n");
+	magenta("                    / /^`.\\.--''''-./,'^\\ \\ \n");
+	magenta("                    \\ \\    _       _    / /  "); red("\t\t\t\t\t\tГлавное Меню:\t\t\n");
+	magenta("                     `./  / __   __ \\  \\,'   \n");
+	magenta("                      /    /_O)_(_O\\    \\     "); green("\t\t\t\t\t1. Объявить кол - во элементов у массива #1\t\n");
+	magenta("                      |  .-'  ___  `-.  |  \n");
+	magenta("                   .--|       \\_/       |--.  "); green("\t\t\t\t\t2. Объявить кол - во элементов у массива #2\t\n");
+	magenta("                 ,'    \\   \\   |   /   /    `.\n");
+	magenta("                /       `.  `--^--'  ,'       \\"); green("\t\t\t\t\t3. Объявить кол - во элементов у массива #3\t\t\n");
+	magenta("             .-^^^^^-.    `--.___.--'     .-^^^^^-.\n");
+	magenta(".-----------/         \\------------------/         \\--------------."); green("\t\t4. Вывести все 3 массива\t\t\t\n");
+	magenta("| .---------\\         /----------------- \\         /------------. |\n");
+	magenta("| |          `-`--`--'                    `--'--'-'             | |"); green("\t\t5. Сложить массив #1\n");
+	magenta("| |   "); red("__      __   ___  | |   ___    ___    _ __ ___     ___"); magenta("    | |\n");
+	magenta("| |   "); red("\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\"); magenta("   | |"); green("\t\t6. Сложить массив #2\n");
+	magenta("| |    "); red("\\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/"); magenta("   | |\n");
+	magenta("| |     "); red("\\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|"); magenta("   | |"); green("\t\t7. Сложить массив #3\n");
+	magenta("| |_____________________________________________________________| |\n");
+	magenta("|_________________________________________________________________|"); green("\t\t8. Вывести общую сумму массивов\n");
+	magenta("                   )__________|__|__________(\n");
+	magenta("                  |            ||            |"); green("\t\t\t\t\t9. Выход\n");
+	magenta("                  |____________||____________|\n");
+	magenta("                    ),-----.(      ),-----.(\n");
+	magenta("                  ,'   ==.   \\    /  .==    `.\n");
+	magenta("                 /            )  (            \\\n");
+	magenta("                 `==========='    `==========='  \n");
+}
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	Array arr1;
+	Array2 arr2;
+	Array3 arr3;
+
+	str s; bool f = true;
+	int n;
+
+	while (f) {
+		while (!_kbhit()) {
+			main_menu();
+			system("cls");
+			main_menu1();
+			system("cls");
+		}
+		main_menu();
+		cin >> s;
+		system("cls");
+		switch (atoi(s.c_str())) {
+		case 1: cout << "n = "; cin >> n; arr1.input(n); break;
+		case 2: cout << "n = "; cin >> n; arr2.input(n); break;
+		case 3: cout << "n = "; cin >> n; arr3.input(n); break;
+		case 4: arr1.output(); arr2.output(); arr3.output(); cin.ignore(); getline(cin, s); break;
+		case 5: arr1.outputAmount(); cin.ignore(); getline(cin, s); break;
+		case 6: arr2.outputAmount(); cin.ignore(); getline(cin, s); break;
+		case 7: arr3.outputAmount(); cin.ignore(); getline(cin, s); break;
+		case 8: AllAmount(arr1, arr2, arr3); cin.ignore(); getline(cin, s); break;
+		case 9: f = false; break;
+		}
+	}
+	return 0;
+}

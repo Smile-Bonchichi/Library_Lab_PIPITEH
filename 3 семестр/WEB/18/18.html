@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="eng">
+
+<head>
+<meta charset="utf-8">
+	<title>18 лаба</title>
+	
+	<link rel=stylesheet href="mystyle.css">
+</head>
+
+<body>	
+	
+	<input id = "testtext" name = "testtext" type = "text" placeholder = "Введите ссылку" >
+	
+	<input type = "button" value = "Проверить" onclick = "test1()">
+	
+	<p></p>
+	
+	<input id = "testtext2" name = "testtext2" type = "text" placeholder = "Введите слово" >
+	
+	<input type = "button" value = "Сделать жирным" onclick = "test2()">
+	
+	<p></p>
+	
+	<input type = "button" value = "Показать сколько осталось секунд до конца дня" onclick = "test3()">
+	
+	<p></p>
+	
+	<p> Введите свой день рождения в формате -> "xxxx-xx-xx" </p>
+	
+	<input id = "testtext3" name = "testtext3" type = "text" placeholder = "Введите дату своего рождения" size = "24px" onMouseOver = "test4(value)">
+	<br> </br>
+	<input size = "30px" id = "qq" name = "qq" type = "text">
+	
+	<p></p>
+	
+	<span id="test">0</span><br>
+	<input type="submit" onclick="start(this)" value="Запустить таймер!" id="but1">
+	<input type="submit" onclick="stop(this)" value="Остановить таймер!" id="but2" disabled>
+	
+	<p></p>
+
+	<div id = "slider">
+		<div id = "polosa">
+			<img src="1.jpg" id="image-1" width = "250px" height = "250px">
+			<img src="2.jpg" id="image-2" width = "250px" height = "250px">
+			<img src="3.jpg" id="image-3" width = "250px" height = "250px">
+		</div>
+	</div>
+	<input type="submit" value="Запустить карусель!" onclick="startslide()" id="start">
+	<input type="submit" value="Остановить карусель!" onclick="stopslide()" id="stop">
+	
+	<script src="qq.js" defer> </script>
+	
+</body>
+</html>

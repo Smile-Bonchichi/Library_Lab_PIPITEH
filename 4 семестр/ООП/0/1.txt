@@ -1,0 +1,41 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+
+#define ll long long
+#define str string
+
+using namespace std;
+
+double power(double n, int p = 2);
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	double value;
+	int valuePower;
+	cout << "Введите число: ";
+	cin >> value;
+	cout << "Введите степень в которую возвести: ";
+	cin >> valuePower;
+	if (valuePower < 2) {
+		cout << "Вы ввели степень < 2, из за этого степень будет равна 2!!!" << endl;
+		cout << "Число " << value << " в степени 2 равна " << power(value) << endl;
+	} else {
+		cout << "Число " << value << " в степени " << valuePower << " равна " << power(value, valuePower) << endl;
+	}
+	
+	return 0;
+}
+
+double power(double n, int p) {
+	double temp = 1;
+	for (int i = 0; i < p; i++)
+		temp *= n;
+	return temp;
+}

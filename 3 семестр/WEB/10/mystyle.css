@@ -1,0 +1,130 @@
+	body{
+	background-color:#fffc3a;
+	}
+	
+	.Russia {
+	font-family: arial; 
+	color:Blue;
+	font-weight: bold;
+	}
+	
+	.USA {
+	font-family: arial; 
+	color:Red; height: 1500px;
+	font-weight: bold;
+	}
+	
+	.Up {
+		transition: 1s;
+	}
+	.Up:hover {
+	 transform: scale(1.2)			
+	}
+	
+	.Deepening {
+		display: inline-block;
+		overflow: hidden;
+	}
+	.Deepening img {
+		transition: 1s;
+		display: block;
+	}
+	.Deepening img:hover {
+		transform: scale(1.2);
+	}
+	
+	.thumb img  {
+    border: 2px solid #55c5e9;
+    padding: 15px;
+    background: #666;
+    margin-right: 540px;
+    margin-bottom: 10px;
+    }
+	
+	.thumb2 img  {
+    border: 2px solid #55c5e9;
+    padding: 15px;
+    background: #666;
+    margin-left: 450px;
+    margin-bottom: 10px;
+    }
+	
+	#list {
+	position: relative; 
+	}
+	
+	#list li {
+	list-style: none; 
+	float: left; 
+	width: 150px;
+	}
+	
+	#list li a {
+	display: block; 
+	width: 150px; 
+	height:100px: 
+	line-height: 100px; 
+	background-color:#884ea2; 
+	color:#120fof; 
+	cursor: point;
+	text-decoration: none;
+	text-align: center;
+	}
+	
+	#list ul ul {
+	display: none; 
+	}
+	
+	#list li:hover > ul{
+	display:block; 
+	font-weight: bold; 
+	position: absolute;
+	width: 0px; 
+	left:0px; 
+	}
+	
+	#list li a:hover {
+	background-color:#ded2d2; 
+	text-decoration: underline; 
+	opacity: 1;
+	}
+	
+	#list2 {
+	position: relative; 
+	}
+	
+	#list2 li {
+	list-style: none; 
+	float: right; 
+	width: 150px;
+	}
+	
+	#list2 li a {
+	display: block; 
+	width: 200px; 
+	height:150px: 
+	line-height: 100px; 
+	background-color:#ea648d; 
+	color:#120fof; 
+	cursor: point;
+	text-decoration: none;
+	text-align: center;
+	}
+	
+	#list2 ul ul {
+	display: none; 
+	}
+	
+	#list2 li:hover>ul {
+	display:block; 
+	font-weight: bold; 
+	position: absolute;
+	width: 100px; 
+	left:1600px; 
+	}
+	
+	#list2 li a:hover {
+	background-color:#ded2d2; 
+	text-decoration: underline; 
+	opacity: 1;
+	}

@@ -1,0 +1,39 @@
+	body{ 
+		background-image:url(1.jpg);
+		background-size:1878px;
+	}
+	.new {
+		font-size: 20px;  
+		color:red;
+		font-weight: bold;
+	}
+	.qq {
+		font-size: 14px;  
+		color:blue;
+		font-weight: bold;1
+	}	
+	#firstheader { 
+		color: green;
+		font-weight: bold; 
+	}
+	
+	@media (max-width: 1800px){
+		body{
+			background-image:url(2.jpg);
+			background-size:1878px;
+		}
+		.new {
+			font-size: 20px;  
+			color:Blue;
+			font-weight: bold;
+		}
+		.qq {
+			font-size: 14px;  
+			color:red;
+			font-weight: bold;
+		}	
+			#firstheader { 
+			color: pink;
+			font-weight: bold; 
+		}
+	}

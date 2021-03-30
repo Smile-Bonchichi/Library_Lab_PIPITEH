@@ -1,0 +1,383 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+
+#define ll long long
+#define str string
+
+using namespace std;
+
+struct info {
+	str full_name;
+	struct date {
+		str day;
+		str month;
+		str year;
+	} date_b;
+	str number_stud;
+};
+
+bool check_number(str s) {
+	if (atoi(s.c_str()) || s == "0")
+		return true;
+	else return false;
+}
+
+class Stud {
+	info* variable_class;
+	int n;
+private:
+	void pop(int x) {
+		variable_class[x].full_name = ' ';
+		for (int j = 1; j < n; j++)
+			for (int i = 0; i < n - j; i++)
+				if (variable_class[i].full_name == " ")
+					swap(variable_class[i], variable_class[i + 1]);
+		n--;
+		ofstream sout;
+		sout.open("1\\Stud.txt");
+		sout << n << endl;
+		for (int i = 0; i < n; i++) {
+			sout << variable_class[i].full_name << endl;
+			sout << variable_class[i].date_b.day << ' ' << variable_class[i].date_b.month << ' ' << variable_class[i].date_b.year << endl;
+			sout << variable_class[i].number_stud << endl;
+		}
+		sout.close();
+	}
+	int SearchElem(str item) {
+		int count =  0, s = -1, choice;
+		for (int i = 0; i < n; i++) {
+			if (variable_class[i].full_name == item) {
+				count++;
+				s = i;
+			} else if ((variable_class[i].date_b.day[0] == item[0] && variable_class[i].date_b.day[1] == item[1])
+				&& (variable_class[i].date_b.month[0] == item[3] && variable_class[i].date_b.month[1] == item[4])
+				&& (variable_class[i].date_b.year[0] == item[6] && variable_class[i].date_b.year[1] == item[7] 
+					&& (variable_class[i].date_b.year[2] == item[8] && variable_class[i].date_b.year[3] == item[9]))) {
+				count++;
+				s = i;
+			} else if (variable_class[i].number_stud == item) {
+				count++;
+				s = i;
+			}
+		}
+		if (count == 0)
+			return s;
+		else if (count == 1)
+			return s;
+		else {
+			while (true) {
+				for (int i = 0; i < count; i++)
+					cout << item << "\t" << i + 1 << endl;
+				cout << "\nChoice one elem: ";
+				cin >> choice;
+				system("cls");
+				if (choice > count || choice < 0)
+					cout << "Error!!!\n" << endl;
+				else {
+					s = choice - 1;
+					return s;
+				}
+			}
+		}
+	}
+	void outputSearch(int x) {
+		cout << "+ № student +       Full Name      + Date of Birthday + Number Student +" << endl;
+		cout << "|-----------|----------------------|------------------|----------------|" << endl;
+		cout << "| " << setw(9) << x + 1 << " | " << setw(20) << variable_class[x].full_name << " | ";
+		cout << setw(8) << variable_class[x].date_b.day << '-' << variable_class[x].date_b.month << '-' << variable_class[x].date_b.year;
+		cout << " | " << setw(14) << variable_class[x].number_stud << " |" << endl;
+	}
+	void BubbleSort(int check) {
+		if (check == 1) {
+			fstream sin;
+			sin.open("1\\stud.txt");
+			sin >> n;
+			for (int i = 0; i < n; i++) {
+				sin.ignore(); getline(sin, variable_class[i].full_name);
+				sin >> variable_class[i].date_b.day >> variable_class[i].date_b.month >> variable_class[i].date_b.year;
+				sin >> variable_class[i].number_stud;
+			}
+			sin.close();
+		} else if (check == 2) {
+			for (int j = 1; j < n; j++)
+				for (int i = 0; i < n - j; i++)
+					if (variable_class[i].full_name > variable_class[i + 1].full_name)
+						swap(variable_class[i], variable_class[i + 1]);
+		} else if (check == 3) {
+			for (int j = 0; j < n - 1; j++)
+				for (int i = 0; i < n - 1; i++)
+					if ((atoi(variable_class[i].date_b.day.c_str()) + (atoi(variable_class[i].date_b.month.c_str()) * 100)
+						+ (atoi(variable_class[i].date_b.year.c_str()) * 10000)) > (atoi(variable_class[i + 1].date_b.day.c_str())
+							+ (atoi(variable_class[i + 1].date_b.month.c_str()) * 100) + (atoi(variable_class[i + 1].date_b.year.c_str()) * 10000)))
+						swap(variable_class[i], variable_class[i + 1]);
+		} else
+			for (int j = 1; j < n; j++)
+				for (int i = 0; i < n - j; i++)
+					if (atoi(variable_class[i].number_stud.c_str()) > atoi(variable_class[i + 1].number_stud.c_str()))
+						swap(variable_class[i], variable_class[i + 1]);
+	}
+	void Choice(str s) {
+		cout << "   ________________________________________" << endl;
+		cout << " / \\         " << setw(10) << s << " студентов          \\." << endl;
+		cout << "|   |                                      |." << endl;
+		cout << " \\_ |       1. По номеру в списке          |." << endl;
+		cout << "    |       2. По ФИО                      |." << endl;
+		cout << "    |       3. По дате рождения            |." << endl;
+		cout << "    |       4. По номеру телефона          |." << endl;
+		cout << "    |       5. Назад                       |." << endl;
+		cout << "    |   ___________________________________|___" << endl;
+		cout << "    |  /                                      /." << endl;
+		cout << "    \\_/______________________________________/." << endl;
+	}
+	
+public:
+	Stud(int count, info* x) {
+		this->n = count;
+		this->variable_class = new info[n];
+		for (int i = 0; i < n; i++) {
+			this->variable_class[i] = x[i];
+		}
+	}
+	void add() {
+		info* temp = new info[n];
+		for (int i = 0; i < n; i++) {
+			temp[i].full_name = variable_class[i].full_name;
+			temp[i].date_b = variable_class[i].date_b;
+			temp[i].number_stud = variable_class[i].number_stud;
+		}
+		n++;
+		variable_class = new info[n];
+		for (int i = 0; i < n - 1; i++) {
+			variable_class[i].full_name = temp[i].full_name;
+			variable_class[i].date_b = temp[i].date_b;
+			variable_class[i].number_stud = temp[i].number_stud;
+		}
+		cout << "Введите ФИО нового студента:";
+		cin.ignore(); getline(cin, variable_class[n - 1].full_name);
+		cout << "Введите дату рождения нового студента:";
+		cin >> variable_class[n - 1].date_b.day >> variable_class[n - 1].date_b.month >> variable_class[n - 1].date_b.year;
+		cout << "Введите номер нового студента:";
+		cin >> variable_class[n - 1].number_stud;
+		ofstream sout;
+		sout.open("1\\Stud.txt");
+		sout << n << endl;
+		for (int i = 0; i < n; i++) {
+			sout << variable_class[i].full_name << endl;
+			sout << variable_class[i].date_b.day << ' ' << variable_class[i].date_b.month << ' ' << variable_class[i].date_b.year << endl;
+			sout << variable_class[i].number_stud << endl;
+		}
+		sout.close();
+		delete[]temp;
+	}
+	void output() {
+		cout << "________________________________________________________________________" << endl;
+		cout << "| № student |       Full Name      | Date of Birthday | Number Student |" << endl;
+		cout << "|-----------|----------------------|------------------|----------------|" << endl;
+		for (int i = 0; i < n; i++) {
+			cout << "| " << setw(9) << i + 1 << " | " << setw(20) << variable_class[i].full_name << " | ";
+			cout << setw(8) << variable_class[i].date_b.day << '-' << variable_class[i].date_b.month << '-' << variable_class[i].date_b.year;
+			cout << " | " << setw(14) << variable_class[i].number_stud << " |" << endl;
+			cout << "|-----------|----------------------|------------------|----------------|" << endl;
+		}
+	}
+	void del() {
+		int x = 0, choice; 
+		str s; bool f = true;
+		while (f) {
+			Choice("Удаление");
+			cout << "\nВведите признак удаления:";
+			cin >> s; system("cls");
+			if (!check_number(s))
+				cout << "Вы ввели не число!!!" << endl;
+			else {
+				choice = atoi(s.c_str());
+				switch (choice) {
+				case 1: f = false;
+					cout << "Введите номер студента из списка для удаления:";
+					cin >> s; system("cls");
+					if (!check_number(s))
+						cout << "Вы ввели не число!!!" << endl;
+					else {
+						if ((atoi(s.c_str()) - 1) >= n || (atoi(s.c_str()) - 1) < 0)
+							cout << "Вы ввели неправильно, повторите ввод!!!" << endl;
+						else pop(atoi(s.c_str()) - 1);
+					}; break;
+				case 2: f = false;
+					cout << "Введите ФИО студента из списка:";
+					cin.ignore(); getline(cin, s); system("cls"); x = SearchElem(s);
+					if (x == -1)
+						cout << "Такого студента нет в базе данных!!!" << endl << endl;
+					else pop(x); break;
+				case 3: f = false;
+					cout << "Введите дату рождения студента из списка:";
+					cin >> s; system("cls"); x = SearchElem(s);
+					if (x == -1)
+						cout << "Такого студента нет в базе данных!!!" << endl << endl;
+					else pop(x); break;
+				case 4: f = false;
+					cout << "Введите номер телефона студента из списка:";
+					cin >> s; system("cls"); x = SearchElem(s);
+					if (x == -1)
+						cout << "Такого студента нет в базе данных!!!" << endl << endl;
+					else pop(x); break;
+				case 5: f = false; break;
+				default: cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl; break;
+				}
+			}
+		}
+	}
+	void sort() {
+		int choice;
+		str s;
+		bool f = true;
+		while (f) {
+			Choice("Сортировка");
+			cout << endl;
+			cout << "Введите признак сортировки:";
+			cin >> s;
+			system("cls");
+			if (!check_number(s))
+				cout << "Вы ввели не число!!!" << endl;
+			else {
+				choice = atoi(s.c_str());
+				switch (choice) {
+				case 1: f = false; BubbleSort(1); break;
+				case 2: f = false; BubbleSort(2); break;
+				case 3: f = false; BubbleSort(3); break;
+				case 4: f = false; BubbleSort(4); break;
+				case 5: f = false; break;
+				default: cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl; break;
+				}
+			}
+		}
+	}
+	void search() {
+		int x = -1, choice;
+		str s;
+		bool f = true;
+		while (f) {
+			Choice("Поиск");
+			cout << endl;
+			cout << "Введите признак поиска:";
+			cin >> s;
+			system("cls");
+			if (!check_number(s))
+				cout << "Вы ввели не число!!!" << endl;
+			else {
+				choice = atoi(s.c_str());
+				switch (choice) {
+				case 1: f = false;
+					cout << "Введите номер студента из списка:";
+					cin >> s; system("cls");
+					if (!check_number(s))
+						cout << "Вы ввели не число!!!" << endl;
+					else {
+						if ((atoi(s.c_str()) - 1) >= n || (atoi(s.c_str()) - 1) < 0)
+							cout << "Такого студента нет в базе данных!!!" << endl << endl;
+						else outputSearch(atoi(s.c_str()) - 1);
+					}; break;
+				case 2: f = false;
+					cout << "Введите ФИО студента из списка:";
+					cin.ignore(); getline(cin, s); system("cls"); x = SearchElem(s);
+					if (x != -1)
+						outputSearch(x);
+					else cout << "Такого студента нет в базе данных!!!" << endl << endl; break;
+				case 3: f = false;
+					cout << "Введите дату рождения студента из списка:";
+					cin >> s; system("cls"); x = SearchElem(s);
+					if (x != -1)
+						outputSearch(x);
+					else cout << "Такого студента нет в базе данных!!!" << endl << endl; break;
+				case 4: f = false;
+					cout << "Введите номер телефона студента из списка:";
+					cin >> s; system("cls"); x = SearchElem(s);
+					if (x != -1) 
+						outputSearch(x);
+					else cout << "Такого студента нет в базе данных!!!" << endl << endl; break;
+				case 5: f = false; break;
+				default: cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl; break;
+				}
+			}
+		}
+	}
+	~Stud() {
+		n = NULL;
+		delete[]variable_class;
+	}
+};
+
+void main_menu() {
+	cout << "                     ,---.           ,---.   " << endl;
+	cout << "                    / /^`.\\.--''''-./,'^\\ \\	" << endl;
+	cout << "                    \\ \\    _       _    / /	" << "\t\t\t\t\t\tГлавное Меню:" << endl;
+	cout << "                     `./  / __   __ \\  \\,'	" << endl;
+	cout << "                      /    /_O)_(_O\\    \\	" << "\t\t\t\t\t1. Добавить нового студента" << endl;
+	cout << "                      |  .-'  ___  `-.  |	" << endl;
+	cout << "                   .--|       \\_/       |--.	" << "\t\t\t\t\t2. Вывести список студентов" << endl;
+	cout << "                 ,'    \\   \\   |   /   /    `." << endl;
+	cout << "                /       `.  `--^--'  ,'       \\" << "\t\t\t\t\t\t3. Удалить студента" << endl;
+	cout << "             .-^^^^^-.    `--.___.--'     .-^^^^^-." << endl;
+	cout << ".-----------/         \\------------------/         \\--------------." << "\t\t\t4. Отсортировать список студентов" << endl;
+	cout << "| .---------\\         /----------------- \\         /------------. |" << endl;
+	cout << "| |          `-`--`--'                    `--'--'-'             | |" << "\t\t\t5. Поиск студента" << endl;
+	cout << "| |__      __   ___  | |   ___    ___    _ __ ___     ___       | |" << endl;
+	cout << "| |\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\      | |" << "\t\t\t6. Выход" << endl;
+	cout << "| | \\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/      | |" << endl;
+	cout << "| |  \\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|      | |" << endl;
+	cout << "| |_____________________________________________________________| |" << endl;
+	cout << "|_________________________________________________________________|" << endl;
+	cout << "                   )__________|__|__________(" << endl;
+	cout << "                  |            ||            |" << endl;
+	cout << "                  |____________||____________|" << endl;
+	cout << "                    ),-----.(      ),-----.(" << endl;
+	cout << "                  ,'   ==.   \\    /  .==    `." << endl;
+	cout << "                 /            )  (            \\" << endl;
+	cout << "                 `==========='    `==========='  " << endl;
+}
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int n, x; str s;
+	fstream sin; bool f = true;
+
+	sin.open("1\\Stud.txt");
+	sin >> n;
+	
+	info* variable_main = new info[n];
+	
+	for (int i = 0; i < n; i++) {
+		sin.ignore(); getline(sin, variable_main[i].full_name);
+		sin >> variable_main[i].date_b.day >> variable_main[i].date_b.month >> variable_main[i].date_b.year;
+		sin >> variable_main[i].number_stud;
+	}
+	sin.close();
+
+	Stud S(n, variable_main);
+	while (f) {
+		main_menu();
+		cin >> s;
+		system("cls");
+		if (!check_number(s))
+			cout << "Вы ввели не число!!!" << endl;
+		else {
+			x = atoi(s.c_str());
+			switch (x) {
+			case 1: S.add(); break;
+			case 2: S.output(); break;
+			case 3: S.del(); break;
+			case 4: S.sort(); break;
+			case 5: S.search(); break;
+			case 6: f = false; break;
+			default: cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl; break;
+			}
+		}
+	}
+	delete[]variable_main;
+	return 0;
+}

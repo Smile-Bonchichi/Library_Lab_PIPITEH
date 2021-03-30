@@ -1,0 +1,216 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+#include "conio.h"
+
+#include "color.h"
+
+#define str string
+
+using namespace std;
+
+const double pi = 3.14;
+
+bool check_number(str s) { //функция для проверки введенного символа
+	if (atoi(s.c_str()) || s == "0")
+		return true;
+	else return false;
+}
+
+template<class T>
+struct stack_info {
+	T item;
+	stack_info* next;
+};
+
+template<class T>
+class Stack_class {
+	stack_info <T>* S;
+	int count;
+private: 
+	void d(int& k1, int& k2) {
+		stack_info<T>* pv = S;
+		while (pv != NULL) {
+			if (pv->item % 2 == 0) k1++;
+			else k2++;
+			pv = pv->next;
+		}
+	}
+public:
+	Stack_class() {
+		S = NULL;
+		count = 0;
+	}
+	void push(int s) {
+		stack_info<T>* pv = new stack_info<T>;
+		pv->item = s;
+		pv->next = S;
+		S = pv;
+		count++;
+	}
+	void pop() {
+		if (count == 0)
+			cout << "Стек пуст!!!" << endl << "Нечего удалять!!!" << endl;
+		else {
+			stack_info<T>* pv = S;
+			S = S->next;
+			cout << "Элемент " << pv->item << " удален!!!" << endl;
+			delete pv;
+			count--;
+		}
+	}
+	void output() {
+		if (count == 0)
+			cout << "Стек пуст!!!" << endl << "Нечего показывать!!!" << endl;
+		else {
+			stack_info<T>* pv = S;
+			int i = count;
+			cout << "_____________________" << endl;
+			cout << "| Элементы | Индекс |" << endl;
+			while (pv != NULL) {
+				cout << "| " << setw(8) << pv->item << " | " << setw(6) << i << " |" << endl;
+				pv = pv->next;
+				i--;
+			}
+		}
+	}
+	int getCount() {
+		return count;
+	}
+	void divide() {
+		if (count == 0)
+			cout << "Стек пуст!!!" << endl << "Нечего разделять!!!" << endl;
+		else {
+			int countE = 0, countO = 0;
+			int i = 0, j = 0, min, max;
+			d(countE, countO);
+			T* arrEven = new T[countE + 1];
+			T* arrOdd = new T[countO + 1];
+			stack_info<T>* pv = S;
+			while (pv != NULL) {
+				if (pv->item % 2 == 0) {
+					arrEven[i] = pv->item;
+					i++;
+				}
+				else {
+					arrOdd[j] = pv->item;
+					j++;
+				}
+				pv = pv->next;
+			}
+			cout << "_____________________" << endl;
+			cout << "| Четные | Нечетные |" << endl;
+			if (countE > countO) {
+				max = countE;
+				min = countO;
+			}
+			else {
+				min = countE;
+				max = countO;
+			}
+			for (int i = 0; i < min; i++)
+				cout << "| " << setw(6) << arrEven[i] << " | " << setw(8) << arrOdd[i] << " |" << endl;
+			if (max == countE)
+				for (int i = min; i < max; i++)
+					cout << "| " << setw(6) << arrEven[i] << endl;
+			else
+				for (int i = min; i < max; i++)
+					cout << "| " << setw(9) << " | " << setw(8) << arrOdd[i] << " |" << endl;
+			delete[]arrEven;
+			delete[]arrOdd;
+		}
+	}
+	~Stack_class() {
+		delete S;
+		count = NULL;
+	}
+};
+
+void main_menu() {
+	cout << "                     ,---.           ,---.   " << endl;
+	cout << "                    / /^`.\\.--''''-./,'^\\ \\	" << endl;
+	cout << "                    \\ \\    _       _    / /	" << "\t\t\t\t\t\tГлавное Меню:\t\t" << endl;
+	cout << "                     `./  / __   __ \\  \\,'	" << endl;
+	cout << "                      /    /_O)_(_O\\    \\	" << "\t\t\t\t\t1. Добавить новый элемент в stack\t" << endl;
+	cout << "                      |  .-'  ___  `-.  |	" << endl;
+	cout << "                   .--|       \\_/       |--.	" << "\t\t\t\t\t2. Вывести элементы stack'a\t" << endl;
+	cout << "                 ,'    \\   \\   |   /   /    `." << endl;
+	cout << "                /       `.  `--^--'  ,'       \\" << "\t\t\t\t\t\t3. Удалить элемент stack'a\t\t" << endl;
+	cout << "             .-^^^^^-.    `--.___.--'     .-^^^^^-." << endl;
+	cout << ".-----------/         \\------------------/         \\--------------." << "\t\t\t4. Вывести кол - во элементов stack'a\t\t\t" << endl;
+	cout << "| .---------\\         /----------------- \\         /------------. |" << endl;
+	cout << "| |          `-`--`--'                    `--'--'-'             | |" << "\t\t\t5. Разделить и вывести stack\t\t\t" << endl;
+	cout << "| |__      __   ___  | |   ___    ___    _ __ ___     ___       | |" << endl;
+	cout << "| |\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\      | |" << "\t\t\t6. Выход" << endl;
+	cout << "| | \\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/      | |" << endl;
+	cout << "| |  \\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|      | |" << endl;
+	cout << "| |_____________________________________________________________| |" << endl;
+	cout << "|_________________________________________________________________|" << endl;
+	cout << "                   )__________|__|__________(" << endl;
+	cout << "                  |            ||            |" << endl;
+	cout << "                  |____________||____________|" << endl;
+	cout << "                    ),-----.(      ),-----.(" << endl;
+	cout << "                  ,'   ==.   \\    /  .==    `." << endl;
+	cout << "                 /            )  (            \\" << endl;
+	cout << "                 `==========='    `==========='  " << endl;
+}
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	Stack_class <char> S;
+	str s; int x, n;
+	bool f = true;
+	while (f) {
+		cout << "Хотите прочитать с файла данные?\n 1 - yes\t 2 - no" << endl;
+		cin >> s; system("cls");
+		if (!check_number(s))
+			cout << "Вы ввели не число!!!" << endl;
+		else {
+			x = atoi(s.c_str());
+			if (x == 1) {
+				f = false; fstream sin;
+				sin.open("1\\Stack.txt");
+				sin >> n;
+				for (int i = 0; i < n; i++) {
+					sin >> x; S.push(x);
+				}
+				sin.close();
+			}
+			else if (x == 2)
+				f = false;
+		}
+	}
+	f = true;
+	while (f) {
+		main_menu();
+		cin >> s;
+		system("cls");
+		if (!check_number(s))
+			cout << "Вы ввели не число!!!" << endl;
+		else {
+			x = atoi(s.c_str());
+			switch (x) {
+			case 1:
+				cout << "Введите новый элемент:";
+				cin >> s;
+				system("cls");
+				if (!check_number(s))
+					cout << "Вы ввели не число!!!" << endl;
+				else S.push(atoi(s.c_str()));
+				break;
+			case 2: S.output(); break;
+			case 3: S.pop(); break;
+			case 4: cout << "В стеке: " << S.getCount() << " элементов" << endl; break;
+			case 5: S.divide(); break;
+			case 6: f = false; break;
+			default: cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl; break;
+			}
+		}
+	}
+	return 0;
+}

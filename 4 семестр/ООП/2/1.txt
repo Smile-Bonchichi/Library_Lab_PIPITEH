@@ -1,0 +1,45 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+
+using namespace std;
+
+class Timer {
+	int time;
+public:
+	Timer(int sec) { time = sec; }
+	Timer(str sec) { time = atoi(sec.c_str()); }
+	Timer(int sec, int min) { time = (min * 60) + sec; }
+	void run() {
+		for (int i = 0; i < t; i++) {
+			cout << time - i << " секунд осталось до конца!!!" << endl;
+			Sleep(1000);
+		} cout << "\a";
+	}
+};
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int sec, min;
+	str s; bool f = true;
+	while (f) {
+		cout << "Введите секунды и минуты через пробел: ";
+		cin >> sec >> min;
+		system("cls");
+		Timer t1(sec);
+		Timer t2(s = to_string(sec));
+		Timer t3(sec, min);
+		cout << "Объект с конструктором: int" << endl;
+		t1.run(); system("cls");
+		cout << "Объект с конструктором: string" << endl;
+		t2.run(); system("cls");
+		cout << "Объект с конструктором: int, int" << endl;
+		t3.run(); system("cls");
+	}
+	return 0;
+}

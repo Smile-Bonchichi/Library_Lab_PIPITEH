@@ -1,0 +1,74 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+#include "conio.h"
+
+#include "color.h"
+
+#define str string
+
+using namespace std;
+
+const double pi = 3.14;
+
+bool check_number(str s) { //функция для проверки введенного символа
+	if (atoi(s.c_str()) || s == "0")
+		return true;
+	else return false;
+}
+
+template<class T>
+T searchMax(T* arr, const int& n) {
+	T max = arr[0];
+	for (int i = 1; i < n; i++)
+		if (arr[i] > max)
+			max = arr[i];
+	return max;
+}
+
+template<class T>
+T* sort(T*& arr, const int& n){
+	for (int j = 0; j < n - 1; j++)
+		for (int i = 0; i < n - 1; i++)
+			if (arr[i] > arr[i + 1])
+				swap(arr[i], arr[i + 1]);
+	return 0;
+}
+
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	int n, j = 0; cin >> n;
+	system("cls");
+	char* arr = new char[n];
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	cout << searchMax(arr, n) << endl;
+	cout << endl;
+	sort(arr, n);
+	//int* arr = new int[n];
+	//for (int i = n - 1; i >= 0; i--)
+	//	arr[j++] = i + 10;
+
+	//for (int i = 0; i < n; i++)
+	//	cout << arr[i] << endl;
+
+	//cout << "\n";
+
+	//cout << "Max = " << searchMax(arr, n) << endl;
+	//cout << "\n";
+	//sort(arr, n);
+
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << endl;
+
+	delete[]arr;
+	return 0;
+}

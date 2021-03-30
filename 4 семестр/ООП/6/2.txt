@@ -1,0 +1,255 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include "Windows.h"
+#include <time.h>
+#include <iomanip>
+#include "conio.h"
+
+#include "color.h"
+
+#define str string
+
+using namespace std;
+
+const double pi = 3.14;
+
+bool check_number(str s) { //функция для проверки введенного символа
+	if (atoi(s.c_str()) || s == "0")
+		return true;
+	else return false;
+}
+
+class Figure;
+class rectangle;
+class circle;
+class trapezium;
+
+class Figure {
+protected:
+	double a;
+	double b;
+public:
+	Figure() { this->a = this->b = 0; }
+	virtual double square() = 0;
+	virtual double perimeter() = 0;
+	virtual void output() = 0;
+};
+
+class rectangle : public Figure {
+public:
+	rectangle() { this->a = this->b = 0; }
+	rectangle(double plosha, double lenght) {
+		this->a = plosha;
+		this->b = lenght;
+	}
+	double square() override {
+		return (this->a * this->b);
+	}
+	double perimeter() override {
+		return ((this->a + this->b) * 2);
+	}
+	void output() override {
+		red("a = " + to_string(a) + "\n");
+		red("b = " + to_string(b) + "\n");
+	}
+};
+
+class circle : public Figure {
+	double radius;
+public:
+	circle() { this->radius = 0; }
+	circle(double r) { this->radius = r; }
+	double square() override {
+		return (pow(this->radius, 2) * pi);
+	}
+	double perimeter() override {
+		return (2 * pi * this->radius);
+	}
+	void output() override {
+		red("r = " + to_string(radius) + "\n");
+	}
+};
+
+class trapezium : public Figure {
+	double h, c, d;
+public:
+	trapezium() { this->a = this->b = this->c = this->d = this->h = 0; };
+	trapezium(double a, double b, double hight, double c, double d) {
+		this->a = a;
+		this->b = b;
+		this->c = c;
+		this->d = d;
+		this->h = hight;
+	}
+	double square() override {
+		return ((this->a + this->b) / 2 * this->h);
+	}
+	double perimeter() override {
+		return (this->a + this->b + this->c + this->d);
+	}
+	void output() override {
+		red("a = " + to_string(a) + "\n");
+		red("b = " + to_string(b) + "\n");
+		red("c = " + to_string(c) + "\n");
+		red("d = " + to_string(d) + "\n");
+		red("h = " + to_string(h) + "\n");
+	}
+};
+
+void main_menu() {
+	magenta("                     ,---.           ,---.   \n");
+	magenta("                    / /^`.\\.--''''-./,'^\\ \\ \n");
+	magenta("                    \\ \\    _       _    / /  "); red("\t\t\t\t\t\tГлавное Меню:\t\t\n");
+	magenta("                     `./  / __   __ \\  \\,'   \n");
+	magenta("                      /    /_O)_(_O\\    \\     "); green("\t\t\t\t\t1. Меню площади\t\n");
+	magenta("                      |  .-'  ___  `-.  |  \n");
+	magenta("                   .--|       \\_/       |--.  "); green("\t\t\t\t\t2. Меню круга\t\n");
+	magenta("                 ,'    \\   \\   |   /   /    `.\n");
+	magenta("                /       `.  `--^--'  ,'       \\"); green("\t\t\t\t\t3. Меню трапеции\t\t\n");
+	magenta("             .-^^^^^-.    `--.___.--'     .-^^^^^-.\n");
+	magenta(".-----------/         \\------------------/         \\--------------."); green("\t\t4. Выход\t\t\t\n");
+	magenta("| .---------\\         /----------------- \\         /------------. |\n");
+	magenta("| |          `-`--`--'                    `--'--'-'             | |\n");
+	magenta("| |   "); cyan("__      __   ___  | |   ___    ___    _ __ ___     ___"); magenta("    | |\n");
+	magenta("| |   "); cyan("\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\"); magenta("   | |\n");
+	magenta("| |    "); cyan("\\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/"); magenta("   | |\n");
+	magenta("| |     "); cyan("\\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|"); magenta("   | |\n");
+	magenta("| |_____________________________________________________________| |\n");
+	magenta("|_________________________________________________________________|\n");
+	magenta("                   )__________|__|__________(\n");
+	magenta("                  |            ||            |\n");
+	magenta("                  |____________||____________|\n");
+	magenta("                    ),-----.(      ),-----.(\n");
+	magenta("                  ,'   ==.   \\    /  .==    `.\n");
+	magenta("                 /            )  (            \\\n");
+	magenta("                 `==========='    `==========='  \n");
+}
+void main_menu1() {
+	magenta("                     ,---.           ,---.   \n");
+	magenta("                    / /^`.\\.--''''-./,'^\\ \\ \n");
+	magenta("                    \\ \\    _       _    / /  "); red("\t\t\t\t\t\tГлавное Меню:\t\t\n");
+	magenta("                     `./  / __   __ \\  \\,'   \n");
+	magenta("                      /    /_O)_(_O\\    \\     "); green("\t\t\t\t\t1. Меню площади\t\n");
+	magenta("                      |  .-'  ___  `-.  |  \n");
+	magenta("                   .--|       \\_/       |--.  "); green("\t\t\t\t\t2. Меню круга\t\n");
+	magenta("                 ,'    \\   \\   |   /   /    `.\n");
+	magenta("                /       `.  `--^--'  ,'       \\"); green("\t\t\t\t\t3. Меню трапеции\t\t\n");
+	magenta("             .-^^^^^-.    `--.___.--'     .-^^^^^-.\n");
+	magenta(".-----------/         \\------------------/         \\--------------."); green("\t\t4. Выход\t\t\t\n");
+	magenta("| .---------\\         /----------------- \\         /------------. |\n");
+	magenta("| |          `-`--`--'                    `--'--'-'             | |\n");
+	magenta("| |   "); red("__      __   ___  | |   ___    ___    _ __ ___     ___"); magenta("    | |\n");
+	magenta("| |   "); red("\\ \\ /\\ / /  / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\"); magenta("   | |\n");
+	magenta("| |    "); red("\\ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/"); magenta("   | |\n");
+	magenta("| |     "); red("\\_/\\_/    \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___|"); magenta("   | |\n");
+	magenta("| |_____________________________________________________________| |\n");
+	magenta("|_________________________________________________________________|\n");
+	magenta("                   )__________|__|__________(\n");
+	magenta("                  |            ||            |\n");
+	magenta("                  |____________||____________|\n");
+	magenta("                    ),-----.(      ),-----.(\n");
+	magenta("                  ,'   ==.   \\    /  .==    `.\n");
+	magenta("                 /            )  (            \\\n");
+	magenta("                 `==========='    `==========='  \n");
+}
+
+void Choice(str s) {
+	yellow("   ________________________________________\n");
+	yellow(" / \\       "); dark_blue("Меню " + s + "\n");
+	yellow("|   |                                      |.\n");
+	yellow(" \\_ |      "); dark_blue("1. Заполнить фигуру       "); yellow("      |.\n");
+	yellow("    |       "); dark_blue("2. Вывести стороны фигуры"); yellow("      |.\n");
+	yellow("    |       "); dark_blue("3. Посчитать площадь     "); yellow("      |.\n");
+	yellow("    |       "); dark_blue("4. Посчитать переметр    "); yellow("      |.\n");
+	yellow("    |       "); dark_blue("5. Назад                 "); yellow("      |.\n");
+	yellow("    |   ___________________________________|___\n");
+	yellow("    |  /                                      /.\n");
+	yellow("    \\_/______________________________________/.\n");
+}
+
+void sq() {
+	str s; bool f = true;
+	double temp1 = 0, temp2 = 0;
+	rectangle rec;
+	while (f) {
+		Choice("прямоугольника");
+		cin >> s;
+		system("cls");
+		switch (atoi(s.c_str())) {
+		case 1: green("Введите "); red("площадь "); green("прямоугольника: "); cin >> temp1;
+				green("Введите "); red("длину "); green(" прямоугольника: "); cin >> temp2;
+				rec = rectangle(temp1, temp2); break;
+		case 2: rec.output(); break;
+		case 3: green("Площадь "); red("прямоугольника "); green("состовляет = "); cout << rec.square() << endl; break;
+		case 4: green("Перемитр "); red("прямоугольника "); green("состовляет = "); cout << rec.perimeter() << endl; break;
+		case 5: f = false; break;
+		}
+	}
+}
+void cir() {
+	str s; bool f = true;
+	double temp = 0;
+	circle cir;
+	while (f) {
+		Choice("круга");
+		cin >> s; system("cls");
+		switch (atoi(s.c_str())) {
+		case 1: green("Введите "); red("радиус "); green("круга: "); cin >> temp;
+				cir = circle(temp); break;
+		case 2: cir.output(); break;
+		case 3: green("Площадь "); red("круга "); green("состовляет = "); cout << cir.square() << endl; break;
+		case 4: green("Перемитр "); red("круга "); green("состовляет = "); cout << cir.perimeter() << endl; break;
+		case 5: f = false; break;
+		}
+	}
+}
+
+void tra() {
+	str s; bool f = true;
+	double temp1 = 0, temp2 = 0, temp3 = 0, temp4 = 0, temp5 = 0;
+	trapezium tra;
+	while (f) {
+		Choice("трапеции");
+		cin >> s; system("cls");
+		switch (atoi(s.c_str())) {
+		case 1: green("Введите "); red("#1 длину основной "); green("трапеции: "); cin >> temp1;
+				green("Введите "); red("#2 длину основной "); green("трапеции: "); cin >> temp2;
+				green("Введите "); red("#1 длину боковой "); green("трапеции: "); cin >> temp3;
+				green("Введите "); red("#2 длину боковой "); green("трапеции: "); cin >> temp4;
+				green("Введите "); red("высота "); green("трапеции: "); cin >> temp5;
+				tra = trapezium(temp1, temp2, temp3, temp4, temp5); break;
+		case 2: tra.output(); break;
+		case 3: green("Площадь "); red("круга "); green("состовляет = "); cout << tra.square() << endl; break;
+		case 4: green("Перемитр "); red("круга "); green("состовляет = "); cout << tra.perimeter() << endl; break;
+		case 5: f = false; break;
+		}
+	}
+}
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	
+	str s; bool f = true;
+
+	while (f) {
+		while (!_kbhit()) {
+			main_menu();
+			system("cls");
+			main_menu1();
+			system("cls");
+		}
+		main_menu();
+		cin >> s;
+		system("cls");
+		switch (atoi(s.c_str())) {
+		case 1: sq(); break;
+		case 2: cir(); break;
+		case 3: tra(); break;
+		case 4: f = false; break;
+		}
+	}
+	return 0;
+}

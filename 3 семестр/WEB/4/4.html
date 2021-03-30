@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>4 лаба</title>
+	<html lang="ru">
+</head>
+
+<body>
+<form action="mailto:ulanovnurdin@gmail.com">
+	<fieldset>
+		Выберите цвет:  <input name='color'  type='color' > 
+		 <p> Введите число: <input name='number'  type='number' placeholder = 'Число' > 
+		 <p> Выберите число: <input name='range' type='range' min='1' max='5'> 
+		 <p> Выберите дату: <input type='date' > 
+		 <p> Выберите время: <input type='time' > 
+	 	 <p> Выберите глобальное время и дату: <input type='datetime' > 
+	  	 <p> Выберите местное время и дату: <input type='datetime-local' > 
+	  	 <p> Выберите месяц: <input type='month' > <br> 
+	  	 <p> Выберите неделю: <input type='week' ><p> </p>
+		Введите email: <input name='email' type='email'> <p> 
+		Введите url: <input name='url' type='url'> <p> 		
+	</fieldset>
+	
+	<p></p>
+	
+	<fieldset>
+
+	<p></p>
+		<legend> Онлайн калькулятор умножения</legend>
+		<input name='first' type='text' > * 
+		<input name='second' type='text' > =  
+		<output name='result' for='first second'></output><br/><br/> 
+		<input type='button' value='Посчитать' 
+		onclick='result.value = first.value * second.value'>
+	</fieldset> 
+	
+	<br>
+	
+	<fieldset>	
+		 <input id="name" placeholder="input text "><p></p>
+	     <input type='text' placeholder="focus text" autofocus><p></p>		 
+		 <textarea id="comments"></textarea> <p></p>
+		 <label for="checkbox"> <input id="zebra" type="checkbox"> Зебра </label> <p></p>
+		 <label for="checkbox1"><input id="olen" type="checkbox"> Олень </label> <p></p>
+		 <label for="radio"> <input id="radio"  type="radio" > Кот </label> <p></p>
+	     <input type='file' multiple='multiple'> <p>
+		 <input type="submit" value="submit">
+	</fieldset>
+	
+</form>
+
+</body>
+</html>
