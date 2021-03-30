@@ -1,0 +1,12 @@
+Windows
+Microsoft
+50.5
+16-01-2022
+Linux
+Tux
+40.3
+05-01-2022
+Mac OS
+Apple
+35.1
+22-01-2022
