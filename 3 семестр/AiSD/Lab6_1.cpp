@@ -1,0 +1,570 @@
+#include <iostream>
+#include <ctime>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include "Windows.h"
+
+using namespace std;
+
+struct list {
+	int item;
+	list* next;
+};
+
+int _count = 0;
+bool ifround = false;
+
+void inition(list*& li, list*& fi);
+void output(list* li);
+void searchByIndex(list* li);
+int searchByValue(list* li, int value);
+void search(list*& li);
+void clear(list*& li);
+void push(list*& li, int k);
+void pop(list*& li, int k);
+void add(list*& li);
+void deleLI(list*& li);
+void round(list*& li, list*& fi);
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	list* _List = new list;
+	list* _f = new list;
+	bool f = true;
+	int choice;
+	int i = 1;
+	_f->next = 0;
+	_List->next = 0;
+	inition(_List, _f);
+
+	while (f) {
+		cout << "-----------------------------------------" << endl;
+		cout << "|             Главное Меню:             |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|         1. Добавление элемента        |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|           2. Вывод элементов          |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|          3. Удаление элемента         |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|      4. Поиск элемента по индексу     |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|     5. Поиск элемента по значению     |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|           6. Очистить список          |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|         7. Закольцевать список        |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|                8. Выход               |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << endl;
+		cout << "Введите номер операции:";
+		cin >> choice;
+		system("cls");
+		switch (choice) {
+		case 1: add(_List); break;
+		case 2:	output(_List); break;
+		case 3: deleLI(_List); break;
+		case 4: searchByIndex(_List); break;
+		case 5: search(_List); break;
+		case 6:	clear(_List); break;
+		case 7:	round(_List, _f); break;
+		case 8: f = false; break;
+		default: cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl; break;
+		}
+	}
+	return 0;
+}
+
+void inition(list*& li, list*& fi) {
+	int x;
+	cout << "Инициализируйте первый элемент для списка:";
+	cin >> x;
+	system("cls");
+	list* _li = new list;
+	_li->item = x;
+	fi = _li;
+	li->next = fi;
+	li->next->next = NULL;
+	cout << "Первый элемент со значением = " << x << " инициализирован\n" << endl;
+	_count++;
+}
+
+void output(list* li) {
+	if (_count <= 0) {
+		cout << "Лист пуст, нечего выводить!!!" << endl;
+	}
+	else {
+		if (ifround == false) {
+			int i = 1;
+			list* _li = li->next;
+			cout << "------------------------------------" << endl;
+			cout << "|\tЭлементы\t:   Индекс |\n";
+			cout << "------------------------------------" << endl;
+			while (_li != 0) {
+				cout << "|\t" << _li->item << "\t\t:     " << i << "\t   |" << endl;
+				cout << "------------------------------------" << endl;
+				_li = _li->next;
+				i++;
+			}
+		}
+		else {
+			int i = 1;
+			list* _li = li->next;
+			cout << "------------------------------------" << endl;
+			cout << "|\tЭлементы\t:   Индекс |\n";
+			cout << "------------------------------------" << endl;
+			while (_li != 0 && i < 26) {
+				cout << "|\t" << _li->item << "\t\t:     " << i << "\t   |" << endl;
+				cout << "------------------------------------" << endl;
+				_li = _li->next;
+				i++;
+			}
+		}
+	}
+}
+
+void searchByIndex(list* li) {
+	if (_count <= 0) {
+		cout << "Лист пуст, нечего искать!!!" << endl;
+	}
+	else {
+		int x, i = 1;
+		bool f = true;
+		list* _li = new list;
+		while (f) {
+			cout << "Введите индекс искоемого элемента:";
+			cin >> x;
+			system("cls");
+			if (x <= 0 || x > (_count + 1)) {
+				cout << "Вы вышли за границы списка!!!" << endl << "Повторите заново ввод!!!" << endl;
+			}
+			else {
+				f = false;
+				_li = li->next;
+				while (_li != 0) {
+					if (i == x) {
+						cout << "Искомый элемент:" << endl;
+						cout << x << "| " << _li->item << endl;
+					}
+					i++;
+					_li = _li->next;
+				}
+			}
+		}
+	}
+}
+
+int searchByValue(list* li, int value) {
+	int i = 1, j, kol = 0, k = 0, x;
+	bool f = true;
+
+	list* _li = new list;
+	_li = li->next;
+
+	while (_li != 0) {
+		if (_li->item == value) {
+			kol++;
+			j = i;
+		}
+		i++;
+		_li = _li->next;
+	}
+	if (kol == 0) {
+		return 0;
+	}
+	else if (kol == 1) {
+		return j;
+	}
+	else {
+		while (f) {
+			for (i = 0; i < kol; i++) {
+				cout << i + 1 << "\t|" << value << endl;
+			}
+			cout << "Мы нашли " << kol << " элемента с введённым значение, выберите 1 из них:";
+			cin >> x;
+			system("cls");
+			if (x <= 0 || x > kol) {
+				cout << "Ошибка при вводе!!!" << endl;
+			}
+			else {
+				f = false;
+				i = 1;
+				_li = li->next;
+				while (_li != 0) {
+					if (_li->item == value) {
+						j = i;
+						k++;
+					}
+					if (k == x) {
+						break;
+					}
+					i++;
+					_li = _li->next;
+				}
+				return j;
+			}
+		}
+	}
+	return 0;
+}
+
+void search(list*& li) {
+	if (_count <= 0) {
+		cout << "Лист пуст, нечего искать!!!" << endl;
+	}
+	else {
+		bool f1 = true;
+		int search, x;
+		while (f1) {
+			cout << "Введите значение элемента который ищем:";
+			cin >> x;
+			system("cls");
+			search = searchByValue(li, x);
+			if (search == 0) {
+				cout << "Введенного элемента не существует." << endl << "Повторите заново ввод!!!" << endl;
+			}
+			else {
+				f1 = false;
+				cout << "Искомый элемент: " << endl << search << "| " << x << endl;
+			}
+		}
+	}
+}
+
+void clear(list*& li) {
+	if (_count <= 0) {
+		cout << "Лист пуст, нечего очищать!!!" << endl;
+	}
+	else {
+		list* _li = new list;
+		_li = li->next;
+		while (_li != 0) {
+			list* _LI = new list;
+			_LI = _li;
+			_li = _li->next;
+			delete _LI;
+		}
+		_count = 0;
+		li->next = 0;
+		cout << "Лист успешно очищен!!!" << endl;
+	}
+}
+
+void push(list*& li, int k) {
+	list* _li = new list;
+	int j = 1, x;
+	cout << "Введите новый элемент для добавления:";
+	cin >> x;
+	system("cls");
+	_li->item = x;
+	if (k == 1) {
+		_li->next = li->next;
+		li->next = _li;
+	}
+	else if (k == (_count + 1)) {
+		list* _LI = new list;
+		_LI = li->next;
+		while (_LI->next != 0) {
+			_LI = _LI->next;
+		}
+		_LI->next = _li;
+		_li->next = 0;
+	}
+	else {
+		list* _LI = new list;
+		_LI = li->next;
+		while (_LI != 0) {
+			if (j == k - 1) {
+				_li->next = _LI->next;
+				_LI->next = _li;
+				break;
+			}
+			j++;
+			_LI = _LI->next;
+		}
+	}
+	_count++;
+	cout << "Элемент " << x << " успешно добавлен";
+}
+
+void pop(list*& li, int k) {
+	list* _li = new list;
+	int x;
+	if (k == 1) {
+		_li = li->next;
+		li->next = _li->next;
+		x = _li->item;
+		cout << "Элемент " << _li->item << " успешно удален" << endl;
+		delete _li;
+	}
+	else if (k == _count) {
+		list* _LI = new list;
+		_LI = li;
+		while (_LI->next != 0) {
+			_li = _LI;
+			_LI = _LI->next;
+		}
+		x = _LI->item;
+		cout << "Элемент " << _LI->item << " успешно удален" << endl;
+		delete _LI;
+		_li->next = 0;
+	}
+	else {
+		int j = 1;
+		list* _LI = new list;
+		_LI = li->next;
+		while (_LI != 0) {
+			if (j == k) {
+				_li->next = _LI->next;
+				x = _LI->item;
+				cout << "Элемент " << _LI->item << " успешно удален" << endl;
+				delete _LI;
+				break;
+			}
+			j++;
+			_li = _LI;
+			_LI = _LI->next;
+		}
+	}
+	_count--;
+	if (_count == 0) {
+		li->next = 0;
+	}
+}
+
+void add(list*& li) {
+	bool f = true, f1 = true;
+	int x, check;
+	while (f) {
+		cout << "-----------------------------------------" << endl;
+		cout << "|            Меню добавления:           |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|       1. Добавление по индексу        |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|  2. Добавление до указанного элемента |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|3. Добавление после указанного элемента|" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << "|               4. Назад                |" << endl;
+		cout << "-----------------------------------------" << endl;
+		cout << endl;
+		cout << "Введите номер операции:";
+		cin >> x;
+		system("cls");
+		if (x == 1) {
+			while (f1) {
+				cout << "Введите индекс куда добавить:";
+				cin >> x;
+				system("cls");
+				if (x <= 0 || x > (_count + 1)) {
+					cout << "Вы вышли за границы списка!!!" << endl << "Повторите заново ввод!!!" << endl;
+				}
+				else {
+					f1 = false;
+					f = false;
+					push(li, x);
+					cout << " в индекс = " << x << endl;
+				}
+			}
+		}
+		else if (x == 2) {
+			if (_count <= 0) {
+				cout << "Лист пуст, нельзя добавить до или после!!!" << endl;
+			}
+			else {
+				while (f1) {
+					cout << "Введите значение элемента до которого добавить:";
+					cin >> x;
+					system("cls");
+					check = searchByValue(li, x);
+					if (check == 0) {
+						cout << "Введенного элемента не существует." << endl << "Повторите заново ввод!!!" << endl;
+					}
+					else {
+						f1 = false;
+						f = false;
+						push(li, check);
+						cout << " до элемента " << x << endl;
+					}
+				}
+			}
+		}
+		else if (x == 3) {
+			if (_count <= 0) {
+				cout << "Лист пуст, нельзя добавить до или после!!!" << endl;
+			}
+			else {
+				while (f1) {
+					cout << "Введите значение элемента после которого добавить:";
+					cin >> x;
+					system("cls");
+					check = searchByValue(li, x);
+					if (check == 0) {
+						cout << "Введенного элемента не существует." << endl << "Повторите заново ввод!!!" << endl;
+					}
+					else {
+						f1 = false;
+						f = false;
+						push(li, (check + 1));
+						cout << " после элемента " << x << endl;
+					}
+				}
+			}
+		}
+		else if (x == 4) {
+			f = false;
+		}
+		else {
+			cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl;
+		}
+	}
+}
+
+void deleLI(list*& li) {
+	if (_count <= 0) {
+		cout << "Лист пуст, нечего удалять!!!" << endl;
+	}
+	else {
+		bool f = true, f1 = true;
+		int x, check;
+		while (f) {
+			cout << "-----------------------------------------" << endl;
+			cout << "|              Меню удаления:           |" << endl;
+			cout << "-----------------------------------------" << endl;
+			cout << "|         1. Удаление по индексу        |" << endl;
+			cout << "-----------------------------------------" << endl;
+			cout << "|   2. Удаление до указанного элемента  |" << endl;
+			cout << "-----------------------------------------" << endl;
+			cout << "| 3. Удаление после указанного элемента |" << endl;
+			cout << "-----------------------------------------" << endl;
+			cout << "|         4. Удаление по значению       |" << endl;
+			cout << "-----------------------------------------" << endl;
+			cout << "|               5. Назад                |" << endl;
+			cout << "-----------------------------------------" << endl;
+			cout << endl;
+			cout << "Введите номер операции:";
+			cin >> x;
+			system("cls");
+			if (x == 1) {
+				while (f1) {
+					cout << "Введите индекс откуда удалить:";
+					cin >> x;
+					system("cls");
+					if (x <= 0 || x > (_count + 1)) {
+						cout << "Вы вышли за границы списка!!!" << endl << "Повторите заново ввод!!!" << endl;
+					}
+					else {
+						f1 = false;
+						f = false;
+						pop(li, x);
+					}
+				}
+			}
+			else if (x == 2) {
+				while (f1) {
+					cout << "Введите значение элемента до которого удалить:";
+					cin >> x;
+					system("cls");
+					check = searchByValue(li, x);
+					if (check == 0) {
+						cout << "Введенного элемента не существует." << endl << "Повторите заново ввод!!!" << endl;
+					}
+					else {
+						f1 = false;
+						f = false;
+						if (check == 1) {
+							cout << "Нельзя удалить до " << x << " \nПотому что там ничего нет!!!" << endl;
+						}
+						else {
+							pop(li, check - 1);
+						}
+					}
+				}
+			}
+			else if (x == 3) {
+				while (f1) {
+					cout << "Введите значение элемента после которого удалить:";
+					cin >> x;
+					system("cls");
+					check = searchByValue(li, x);
+					if (check == 0) {
+						cout << "Введенного элемента не существует." << endl << "Повторите заново ввод!!!" << endl;
+					}
+					else {
+						f1 = false;
+						f = false;
+						if (check == _count) {
+							cout << "Нельзя удалить после " << x << " \nПотому что там ничего нет!!!" << endl;
+						}
+						else {
+							pop(li, check + 1);
+						}
+					}
+				}
+			}
+			else if (x == 4) {
+				while (f1) {
+					cout << "Введите значение элемента который будем удалять:";
+					cin >> x;
+					system("cls");
+					check = searchByValue(li, x);
+					if (check == 0) {
+						cout << "Введенного элемента не существует." << endl << "Повторите заново ввод!!!" << endl;
+					}
+					else {
+						f1 = false;
+						f = false;
+						pop(li, check);
+					}
+				}
+			}
+			else if (x == 5) {
+				f = false;
+			}
+			else {
+				cout << "Такой операции не существует!!!" << endl << "Введите заново." << endl;
+			}
+		}
+	}
+}
+
+void round(list*& li, list*& fi) {
+	if (_count <= 0) {
+		cout << "Лист пуст, нечего кольцевать!!!" << endl;
+	}
+	else {
+		if (ifround == false) {
+			list* _li = new list;
+			_li = fi;
+			list* _LI = new list;
+			_LI = fi;
+			while (_li != 0) {
+				if (_li->next == 0) {
+					_li->next = _LI;
+					break;
+				}
+				_li = _li->next;
+			}
+			cout << "end->next = " << _li->next << endl;;
+			cout << "head = " << _LI << endl;
+			ifround = true;
+			cout << "Список закольцован!!!" << endl;
+		}
+		else {
+			cout << "Список откольцован!!!" << endl;
+			ifround = false;
+			list* _li = new list;
+			_li = fi;
+			for (int l = 0; l < _count; l++) {
+				_li = _li->next;
+				if (l == (_count - 2)) {
+					_li->next = NULL;
+				}
+			}
+		}
+	}
+}
