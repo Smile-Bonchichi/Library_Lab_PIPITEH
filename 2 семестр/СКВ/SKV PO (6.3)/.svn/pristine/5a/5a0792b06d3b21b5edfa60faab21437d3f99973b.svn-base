@@ -1,0 +1,137 @@
+﻿Public Class Form2
+    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Exchange(ByVal Chislo As Double, ByVal Course As Double, ByRef TotalSom As Double)
+        TotalSom = Chislo * Course
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        If IsNumeric(TextBox1.Text) And IsNumeric(TextBox5.Text) Then
+
+            If TextBox1.Text <= 0 And TextBox5.Text <= 0 Or TextBox1.Text <= 0 Or TextBox5.Text <= 0 Then
+                TextBox9.Text = "Ошибка"
+            Else
+
+                Dim dollar, course, totalSom As Double
+                dollar = CDbl(TextBox1.Text)
+                course = CDbl(TextBox5.Text)
+                Exchange(dollar, course, totalSom)
+                TextBox9.Text = CStr(totalSom)
+
+            End If
+
+        Else
+                TextBox9.Text = "Error"
+        End If
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        If IsNumeric(TextBox2.Text) And IsNumeric(TextBox6.Text) Then
+
+            If TextBox2.Text <= 0 And TextBox6.Text <= 0 Or TextBox2.Text <= 0 Or TextBox6.Text <= 0 Then
+                TextBox10.Text = "Ошибка"
+            Else
+
+                Dim euro, course, totalSom As Double
+                euro = CDbl(TextBox2.Text)
+                course = CDbl(TextBox6.Text)
+                Exchange(euro, course, totalSom)
+                TextBox10.Text = CStr(totalSom)
+            End If
+
+        Else
+            TextBox10.Text = "Error"
+        End If
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        If IsNumeric(TextBox3.Text) And IsNumeric(TextBox7.Text) Then
+
+            If TextBox3.Text <= 0 And TextBox7.Text <= 0 Or TextBox3.Text <= 0 Or TextBox7.Text <= 0 Then
+                TextBox11.Text = "Ошибка"
+            Else
+
+                Dim Tenge, course, totalSom As Double
+                Tenge = CDbl(TextBox3.Text)
+                course = CDbl(TextBox7.Text)
+                Exchange(Tenge, course, totalSom)
+                TextBox11.Text = CStr(totalSom)
+
+            End If
+
+        Else
+            TextBox11.Text = "Error"
+        End If
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+        If IsNumeric(TextBox4.Text) And IsNumeric(TextBox8.Text) Then
+
+            If TextBox4.Text <= 0 And TextBox8.Text <= 0 Or TextBox4.Text <= 0 Or TextBox8.Text <= 0 Then
+                TextBox12.Text = "Ошибка"
+            Else
+
+                Dim USum, course, totalsom As Double
+                USum = CDbl(TextBox4.Text)
+                course = CDbl(TextBox8.Text)
+                Exchange(USum, course, totalsom)
+                TextBox12.Text = CStr(totalsom)
+
+            End If
+
+        Else
+            TextBox12.Text = "Error"
+        End If
+
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        TextBox5.Text = ""
+        TextBox6.Text = ""
+        TextBox7.Text = ""
+        TextBox8.Text = ""
+
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        TextBox9.Text = ""
+        TextBox10.Text = ""
+        TextBox11.Text = ""
+        TextBox12.Text = ""
+
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
+        TextBox6.Text = ""
+        TextBox7.Text = ""
+        TextBox8.Text = ""
+        TextBox9.Text = ""
+        TextBox10.Text = ""
+        TextBox11.Text = ""
+        TextBox12.Text = ""
+
+    End Sub
+End Class

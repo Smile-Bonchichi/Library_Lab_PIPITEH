@@ -1,0 +1,12 @@
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV PO (6.2).vbprojAssemblyReference.cache
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV_PO__6._2_.Form1.resources
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV_PO__6._2_.Resources.resources
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV PO (6.2).vbproj.GenerateResource.cache
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV PO (6.2).vbproj.CoreCompileInputs.cache
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\bin\Debug\SKV PO (6.2).exe.config
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\bin\Debug\SKV PO (6.2).exe
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\bin\Debug\SKV PO (6.2).pdb
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\bin\Debug\SKV PO (6.2).xml
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV PO (6.2).exe
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV PO (6.2).xml
+C:\Users\zg180\source\repos\SKV PO\SKV PO (6.2)\SKV PO (6.2)\obj\Debug\SKV PO (6.2).pdb

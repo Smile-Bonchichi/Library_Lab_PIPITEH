@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SKV PO (7)", "SKV PO (7)\SKV PO (7).vbproj", "{2AB9265C-2895-4D4A-85B8-F054C65CAE9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AB9265C-2895-4D4A-85B8-F054C65CAE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB9265C-2895-4D4A-85B8-F054C65CAE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB9265C-2895-4D4A-85B8-F054C65CAE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB9265C-2895-4D4A-85B8-F054C65CAE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {5F650E07-EE2A-4EB6-9816-F43296C6C1D6}
+	EndGlobalSection
+EndGlobal

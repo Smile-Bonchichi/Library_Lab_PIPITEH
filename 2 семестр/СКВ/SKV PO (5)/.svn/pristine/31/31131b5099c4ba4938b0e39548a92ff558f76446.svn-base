@@ -1,0 +1,25 @@
+﻿Public Class Form1
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If (8.0 And 9.0 And 10.0 And 11.0) Then
+            TextBox2.Text = "Доброе утро!"
+            'End If
+
+        ElseIf (12.0 And 13.0 And 14.0 And 15.0 And 16.0) Then
+            TextBox2.Text = "Добрый день!"
+            'End If
+
+        ElseIf (17.0 And 18.0 And 19.0 And 20.0 And 21.0 And 22.0) Then
+            TextBox2.Text = "Добрый вечер!"
+            'End If
+
+        Else
+            TextBox2.Text = "Доброй ночи!"
+
+        End If
+
+    End Sub
+End Class

@@ -1,0 +1,11 @@
+﻿Public Class Form2
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim i As Integer
+        For i = 1 To 4
+            PictureBox1.Image = System.Drawing.Image.FromFile("C:\Пользователи\zg180\source\repos\654a0ecfa08e3ca62df442aeb6e7694f.jpg")
+            MsgBox("Щелкните здесь, чтобы посмотреть следующую рожицу.")
+        Next
+
+    End Sub
+End Class
