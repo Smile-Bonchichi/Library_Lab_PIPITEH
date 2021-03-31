@@ -1,0 +1,7 @@
+﻿  Main.cpp
+C:\Users\User\Desktop\ФОП\FOP\Lab1.h(82,19): warning C4101: f: неиспользованная локальная переменная
+C:\Users\User\Desktop\ФОП\FOP\Lab1.h(136,7): error C3861: perfect: идентификатор не найден
+C:\Users\User\Desktop\ФОП\FOP\Lab1.h(147,1): error C2059: синтаксическая ошибка: }
+C:\Users\User\Desktop\ФОП\FOP\Lab1.h(147,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+C:\Users\User\Desktop\ФОП\FOP\Main.cpp(10,12): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\User\Desktop\ФОП\FOP\Main.cpp(10,12): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
