@@ -1,24 +1,24 @@
-п»їLab2_1 {
+Lab2_1 {
 	create table professor(
 		ID_prof BIGSERIAL PRIMARY KEY,
-		Р¤РРћ VARCHAR(50)
+		ФИО VARCHAR(50)
 	);
 	
 	create table courses (
 		ID_cour BIGSERIAL PRIMARY KEY,
-		РќР°Р·РІР°РЅРёРµ_РїСЂРµРґРјРµС‚Р° VARCHAR(50),
+		Название_предмета VARCHAR(50),
 		ID_prof INT REFERENCES professor(ID_prof)
 	);
 	
 	create table students (
 		ID_stud BIGSERIAL PRIMARY KEY,
-		Р¤РРћ VARCHAR(50),
+		ФИО VARCHAR(50),
 		ID_cour INT REFERENCES courses(ID_cour)
 	);
 	
 	create table exams (
 		ID_cour INT REFERENCES courses(ID_cour),
-		РќР°Р·РІР°РЅРёРµ_РїСЂРµРґРјРµС‚Р° VARCHAR(50),
+		Название_предмета VARCHAR(50),
 		ID_stud INT REFERENCES students(ID_stud),
 		ID_prof INT REFERENCES professor(ID_prof),
 		
@@ -29,25 +29,25 @@
 Lab2_2 {
 	create table city (
 		ID_city BIGSERIAL PRIMARY KEY,
-		Р“РѕСЂРѕРґ VARCHAR(50)
+		Город VARCHAR(50)
 	);
 
 	create table average (
 		ID_avg BIGSERIAL PRIMARY KEY,
 		ID_city INT REFERENCES city(ID_city),
-		РЈС‚СЂРµРЅРЅСЏСЏ_С‚РµРјРїРµСЂР°С‚СѓСЂР° INT,
-		Р”РЅРµРІРЅР°СЏ_С‚РµРјРїРµСЂР°С‚СѓСЂР° INT,
-		Р’РµС‡РµСЂРЅСЏСЏ_С‚РµРјРїРµСЂР°С‚СѓСЂР° INT,
-		РЎСЂРµРґРЅСЏСЏ_С‚РµРјРїРµСЂР°С‚СѓСЂР° DECIMAL(10,2)
+		Утренняя_температура INT,
+		Дневная_температура INT,
+		Вечерняя_температура INT,
+		Средняя_температура DECIMAL(10,2)
 	 );
 	 
 	create table main (
 		ID_avg INT REFERENCES average(ID_avg),
 		ID_city INT REFERENCES city(ID_city),
-		РўРµРјРїРµСЂР°С‚СѓСЂР° INT,
-		Р’Р»Р°Р¶РЅРѕСЃС‚СЊ INT,
-		РЎРєРѕСЂРѕСЃС‚СЊ_РІРµС‚СЂР° INT,
-		Р”Р°С‚Р°_РїРѕР»СѓС‡РµРЅРёСЏ DATE,	
+		Температура INT,
+		Влажность INT,
+		Скорость_ветра INT,
+		Дата_получения DATE,	
 		CONSTRAINT id_main PRIMARY KEY(ID_avg, ID_city)
 	);
 }
@@ -55,19 +55,19 @@ Lab2_2 {
 Lab2_3{
 	create table car (
 	ID_Car BIGSERIAL PRIMARY KEY,
-	РњР°СЂРєР°_Р°РІС‚Рѕ VARCHAR(50),
-	РњРѕРґРµР»СЊ VARCHAR(50),
-	Р“РѕРґ_РІС‹РїСѓСЃРєР° DATE,
-	Р¦РІРµС‚ VARCHAR(50),
-	РћР±СЉРµРј DECIMAL(4,1)
+	Марка_авто VARCHAR(50),
+	Модель VARCHAR(50),
+	Год_выпуска DATE,
+	Цвет VARCHAR(50),
+	Объем DECIMAL(4,1)
 );
 	
 	create table Salon (
 	ID_salon BIGSERIAL,
 	ID_car INT REFERENCES car(ID_Car),
-	РђРґСЂРµСЃ_СЃР°Р»РѕРЅР° VARCHAR(50),
-	Р•СЃС‚СЊ_РІ_РЅР°Р»РёС‡РёРё VARCHAR(50),
-	Р¦РµРЅР° INT,
+	Адрес_салона VARCHAR(50),
+	Есть_в_наличии VARCHAR(50),
+	Цена INT,
 	CONSTRAINT id_salon PRIMARY KEY(ID_car)
 );
 }

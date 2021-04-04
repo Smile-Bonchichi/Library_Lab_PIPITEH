@@ -1,6 +1,6 @@
-п»ї1 {
+1 {
 	select aircrafts.model, flights.scheduled_arrival, flights.scheduled_departure, 
-	(flights.scheduled_arrival - flights.scheduled_departure) as Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ_РїРѕР»РµС‚Р° 
+	(flights.scheduled_arrival - flights.scheduled_departure) as Длительность_полета 
 	from flights, aircrafts
 	where (flights.status = 'Arrived' or flights.status = 'On time')
 	and (flights.scheduled_arrival - flights.scheduled_departure) >= '06:00:00'
@@ -8,27 +8,27 @@
 }
 
 2 {
-	select *, (actual_departure - scheduled_departure) as Р Р°Р·РЅРёС†Р°
+	select *, (actual_departure - scheduled_departure) as Разница
 	from flights
 	where status = 'Arrived' and (actual_departure - scheduled_departure) >= '04:00:00';
 }
 
 3 {
-	select airports.airport_name, count(*) as РљРѕР»РёС‡РµСЃС‚РІРѕ_РїР°СЃСЃР°Р¶РёСЂРѕРІ
+	select airports.airport_name, count(*) as Количество_пассажиров
     from flights, ticket_flights, airports
     where (flights.arrival_airport = airports.airport_code or flights.departure_airport = airports.airport_code) 
     and ticket_flights.flight_id = flights.flight_id and date(flights.scheduled_departure) = '2017-07-16' 
 	and (flights.status = 'Arrived' or flights.status = 'On Time')
     group by(airports.airport_name)
-    order by РљРѕР»РёС‡РµСЃС‚РІРѕ_РїР°СЃСЃР°Р¶РёСЂРѕРІ desc limit 10;
+    order by Количество_пассажиров desc limit 10;
 }
 
 4 {
-	select  scheduled_departure, scheduled_arrival, count(*) over(Partition by РЎ_РїРµСЂРµСЂС‹РІРѕРј_РІ_5_РјРёРЅСѓС‚) as totalCount
+	select  scheduled_departure, scheduled_arrival, count(*) over(Partition by С_перерывом_в_5_минут) as totalCount
 	from (
-		Select *, case when РћСЃС‚Р°Р»СЊРЅС‹Рµ > 1 then 1 else 0 end as РЎ_РїРµСЂРµСЂС‹РІРѕРј_РІ_5_РјРёРЅСѓС‚
+		Select *, case when Остальные > 1 then 1 else 0 end as С_перерывом_в_5_минут
 		from (
-			select *, count(*) over(Partition by scheduled_departure) as РћСЃС‚Р°Р»СЊРЅС‹Рµ 
+			select *, count(*) over(Partition by scheduled_departure) as Остальные 
 			from flights
 			where (status = 'Arrived' or status = 'On Time') 
 			and departure_airport = 'SVO'

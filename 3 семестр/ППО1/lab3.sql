@@ -12,7 +12,7 @@
 }
 
 3_4 {
-	select *, (actual_arrival - actual_departure) as Р Р°Р·РЅРёС†Р°
+	select *, (actual_arrival - actual_departure) as Разница
 	from flights 
 	where status = 'Arrived';
 }
