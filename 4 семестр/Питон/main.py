@@ -1,0 +1,48 @@
+# 1
+a = int(input('Число а:'))
+b = int(input('Число b:'))
+for x in range(a, b + 1):
+    print('Числа от a до b:',x)
+
+# 2
+# a = int(input('Число а:'))
+# b = int(input('Число b:'))
+# for x in range(a - int((a % 2) == 0), b - 1, -2):
+#       print(x)
+
+# 3
+# n = int(input('Введите колличество чисел N: '))
+# sum = 0
+# for i in range(n):
+#    sum += int(input('Введите цифру: '))
+# print('Сумма',sum)
+
+# 4
+# n = int(input('Введите натуральное n: '))
+# sum = 0
+# for i in range(1, n + 1):
+#    sum += i ** 3
+# print(sum)
+
+# 5
+# fl = 1
+# n = int(input('Введите число n: '))
+# for i in range(1, n + 1):
+#    fl *= i
+# print(fl)
+
+# 6
+# num_zero = 0
+# for i in range(int(input('Число N: '))):
+#    if int(input('Целое число N: ')) == 0:
+#       num_zero += 1
+# print("кол-во нулей равно=",num_zero)
+
+# 7
+# n = int(input('Номер карточки: '))
+# sum = 0
+# for i in range(1, n + 1):
+#    sum += i
+# for i in range(n - 1):
+#    sum -= int(input('Номер карточки: '))
+# print('Номер потеренной карточки: ',sum)
