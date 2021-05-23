@@ -1,6 +1,6 @@
 # ПИПИТЕХ (ТУТА ВСЕ НАШИ ЛАБЫ КОТОРЫЕ МЫ ОТКОПАЛИ ГДЕ - ТО)
 <div align="center">
-![Image alt](https://github.com/Smile-Bonchichi/Library_Lab_PIPITEH/blob/main/LogoPiPiTeX.png)
+   <img src=https://github.com/Smile-Bonchichi/Library_Lab_PIPITEH/blob/main/LogoPiPiTeX.png" >
 </div>
 ## Авторы:
 - :black_heart: Улан у. Нурдин :black_heart:
