@@ -1,7 +1,7 @@
 # ПИПИТЕХ (ТУТА ВСЕ НАШИ ЛАБЫ КОТОРЫЕ МЫ ОТКОПАЛИ ГДЕ - ТО)
-<div align="center">
-   <img src=https://github.com/Smile-Bonchichi/Library_Lab_PIPITEH/blob/main/LogoPiPiTeX.png" >
-</div>
+<p align="center"> 
+   <img src="https://github.com/Smile-Bonchichi/Library_Lab_PIPITEH/blob/main/LogoPiPiTeX.png">
+</p>
 ## Авторы:
 - :black_heart: Улан у. Нурдин :black_heart:
 - :computer: Талайбеков Эркин :computer:
