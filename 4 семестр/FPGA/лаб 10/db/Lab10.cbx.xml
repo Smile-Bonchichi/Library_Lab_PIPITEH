@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Lab10">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Lab10|lpm_decode0:inst7|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_7uf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Lab10|lpm_mux0:inst8|LPM_MUX:lpm_mux_component" CBX_FILE_NAME="mux_j6e.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

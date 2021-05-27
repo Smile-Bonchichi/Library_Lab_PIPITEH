@@ -1,0 +1,122 @@
+Flow report for Lab1
+Wed Feb 03 13:21:22 2021
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Flow Summary                                                                 ;
++------------------------------------+-----------------------------------------+
+; Flow Status                        ; Successful - Wed Feb 03 13:21:19 2021   ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Web Edition ;
+; Revision Name                      ; Lab1                                    ;
+; Top-level Entity Name              ; Lab1                                    ;
+; Family                             ; Cyclone III                             ;
+; Device                             ; EP3C16F484A7                            ;
+; Timing Models                      ; Final                                   ;
+; Met timing requirements            ; N/A                                     ;
+; Total logic elements               ; 2 / 15,408 ( < 1 % )                    ;
+;     Total combinational functions  ; 2 / 15,408 ( < 1 % )                    ;
+;     Dedicated logic registers      ; 0 / 15,408 ( 0 % )                      ;
+; Total registers                    ; 0                                       ;
+; Total pins                         ; 7 / 347 ( 2 % )                         ;
+; Total virtual pins                 ; 0                                       ;
+; Total memory bits                  ; 0 / 516,096 ( 0 % )                     ;
+; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                         ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                           ;
++------------------------------------+-----------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 02/03/2021 13:21:10 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; Lab1                ;
++-------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                    ;
++------------------------------------+---------------------------------+---------------+-------------+----------------+
+; Assignment Name                    ; Value                           ; Default Value ; Entity Name ; Section Id     ;
++------------------------------------+---------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID              ; 198112228526601.161233687005052 ; --            ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP             ; 125                             ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP             ; -40                             ; --            ; --          ; --             ;
+; MISC_FILE                          ; D:/лабы FPGA/лаб 1/Lab1.dpf     ; --            ; --          ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE        ; 1.2V                            ; --            ; --          ; --             ;
+; PARTITION_COLOR                    ; 16764057                        ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE             ; SOURCE                          ; --            ; --          ; Top            ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                             ; --            ; --          ; eda_blast_fpga ;
++------------------------------------+---------------------------------+---------------+-------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 249 MB              ; 00:00:01                           ;
+; Fitter                    ; 00:00:03     ; 1.0                     ; 305 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 243 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 260 MB              ; 00:00:02                           ;
+; Total                     ; 00:00:08     ; --                      ; --                  ; 00:00:08                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                            ;
++---------------------------+------------------+---------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name       ; OS Version ; Processor type ;
++---------------------------+------------------+---------------+------------+----------------+
+; Analysis & Synthesis      ; Nurdin           ; Windows Vista ; 6.2        ; x86_64         ;
+; Fitter                    ; Nurdin           ; Windows Vista ; 6.2        ; x86_64         ;
+; Assembler                 ; Nurdin           ; Windows Vista ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; Nurdin           ; Windows Vista ; 6.2        ; x86_64         ;
++---------------------------+------------------+---------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off Lab1 -c Lab1
+quartus_fit --read_settings_files=off --write_settings_files=off Lab1 -c Lab1
+quartus_asm --read_settings_files=off --write_settings_files=off Lab1 -c Lab1
+quartus_sta Lab1 -c Lab1
+
+
+

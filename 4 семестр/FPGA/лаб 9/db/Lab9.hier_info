@@ -1,0 +1,45 @@
+|Lab9
+P <= Elblock:inst4.P
+T => Elblock:inst.T
+C => Elblock:inst.C
+C => Elblock:inst2.C
+C => Elblock:inst3.C
+C => Elblock:inst4.C
+Q[0] <= Elblock:inst.Q
+Q[1] <= Elblock:inst2.Q
+Q[2] <= Elblock:inst3.Q
+Q[3] <= Elblock:inst4.Q
+
+
+|Lab9|Elblock:inst4
+P <= inst.DB_MAX_OUTPUT_PORT_TYPE
+T => inst.IN0
+T => inst3~0.IN0
+C => inst3.CLK
+Q <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab9|Elblock:inst3
+P <= inst.DB_MAX_OUTPUT_PORT_TYPE
+T => inst.IN0
+T => inst3~0.IN0
+C => inst3.CLK
+Q <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab9|Elblock:inst2
+P <= inst.DB_MAX_OUTPUT_PORT_TYPE
+T => inst.IN0
+T => inst3~0.IN0
+C => inst3.CLK
+Q <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab9|Elblock:inst
+P <= inst.DB_MAX_OUTPUT_PORT_TYPE
+T => inst.IN0
+T => inst3~0.IN0
+C => inst3.CLK
+Q <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+
+

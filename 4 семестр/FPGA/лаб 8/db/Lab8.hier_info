@@ -1,0 +1,23 @@
+|Lab8
+Q0 <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+C => inst7.CLK
+C => inst8.CLK
+C => inst15.CLK
+C => inst20.CLK
+E => inst3.IN0
+E => inst.IN0
+E => inst5.IN0
+E => inst10.IN0
+E => inst13.IN0
+E => inst12.IN0
+E => inst18.IN0
+E => inst16.IN0
+D0 => inst3.IN1
+Q1 <= inst8.DB_MAX_OUTPUT_PORT_TYPE
+D1 => inst5.IN1
+Q2 <= inst15.DB_MAX_OUTPUT_PORT_TYPE
+D2 => inst13.IN1
+Q3 <= inst20.DB_MAX_OUTPUT_PORT_TYPE
+D3 => inst18.IN1
+
+

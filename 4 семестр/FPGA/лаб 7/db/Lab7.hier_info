@@ -1,0 +1,20 @@
+|Lab7
+Q1 <= inst14.DB_MAX_OUTPUT_PORT_TYPE
+K => inst12.IN0
+K => inst3.IN0
+K => inst.IN1
+K => inst4.IN0
+J => inst11.IN1
+J => inst2.IN0
+J => inst6.IN0
+J => inst5.IN1
+Q0 <= rst:inst9.LEDG0
+
+
+|Lab7|rst:inst9
+LEDG0 <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+BUTTON1 => inst3.IN0
+BUTTON0 => inst2.IN1
+LEDG1 <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+
+

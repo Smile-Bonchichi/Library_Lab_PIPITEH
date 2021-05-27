@@ -1,0 +1,72 @@
+Version 9.0 Build 132 02/25/2009 SJ Web Edition
+10
+769
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Block1
+# storage
+db|vychitatel.(0).cnf
+db|vychitatel.(0).cnf
+# case_insensitive
+# source_file
+Block1.bdf
+9fe7f62e732e36faefe57be38154f759
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# macro_sequence
+
+# end
+# entity
+summ
+# storage
+db|vychitatel.(1).cnf
+db|vychitatel.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+vychitatel.vhd
+494817ebf82c406cd82445f9d8ebc45d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+..|..|altera|90|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# complete
+

@@ -1,0 +1,26 @@
+|Lab5
+LEDG0 <= inst.DB_MAX_OUTPUT_PORT_TYPE
+SW0 => inst.IN0
+SW0 => inst7.IN0
+SW0 => inst8.IN0
+SW0 => inst10.IN0
+SW0 => inst11.IN1
+SW2 => inst.IN1
+SW2 => inst4.IN1
+SW2 => inst5.IN0
+SW2 => inst7.IN1
+SW2 => inst6.IN1
+SW2 => inst11.IN2
+LEDG1 <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+SW3 => inst4.IN0
+SW3 => inst5.IN1
+SW3 => inst8.IN1
+SW3 => inst9.IN1
+SW3 => inst11.IN3
+LEDG2 <= inst13.DB_MAX_OUTPUT_PORT_TYPE
+SW1 => inst6.IN0
+SW1 => inst10.IN1
+SW1 => inst9.IN0
+SW1 => inst11.IN0
+
+

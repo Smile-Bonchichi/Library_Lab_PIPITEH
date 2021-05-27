@@ -1,0 +1,65 @@
+Version 9.0 Build 132 02/25/2009 SJ Web Edition
+10
+769
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Lab9
+# storage
+db|Lab9.(0).cnf
+db|Lab9.(0).cnf
+# case_insensitive
+# source_file
+Lab9.bdf
+bbd116b320b546306d5d4592f6ba437
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+Elblock
+# storage
+db|Lab9.(1).cnf
+db|Lab9.(1).cnf
+# case_insensitive
+# source_file
+Elblock.bdf
+b6fa6bdda0c43835eca24bda74f84537
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+Elblock:inst4
+Elblock:inst3
+Elblock:inst2
+Elblock:inst
+}
+# macro_sequence
+
+# end
+# complete
+

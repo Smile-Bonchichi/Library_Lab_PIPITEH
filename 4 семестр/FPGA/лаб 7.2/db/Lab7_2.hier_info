@@ -1,0 +1,13 @@
+|Lab7_2
+Q <= rst:inst1.LEDG0
+D => inst.IN0
+D => rst:inst1.BUTTON1
+
+
+|Lab7_2|rst:inst1
+LEDG0 <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+BUTTON1 => inst3.IN0
+BUTTON0 => inst2.IN1
+LEDG1 <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+
+
